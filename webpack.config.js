@@ -9,16 +9,19 @@ const resolver = (dirpath) => {
   return path.resolve(__dirname, dirpath);
 };
 
+// TODO: webpack bundling has issue cant resolve module
 const entry = {
   index: './src/index.ts',
-  components: {
-    import: './src/components/index.ts',
-    filename: 'components/index.js'
-  },
-  utils: {
-    import: './src/utils/index.ts',
-    filename: 'utils/index.js'
-  }
+  'components/index': './src/components/index.ts',
+  'utils/index': './src/utils/index.ts'
+  // components: {
+  //   import: './src/components/index.ts',
+  //   filename: 'components/index.js'
+  // },
+  // utils: {
+  //   import: './src/utils/index.ts',
+  //   filename: 'utils/index.js'
+  // }
 };
 const output = {
   path: resolver('lib'),

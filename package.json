@@ -7,16 +7,6 @@
     "lib",
     "src"
   ],
-  "exports": {
-    ".": {
-      "types": "./lib/index.d.ts",
-      "default": "./lib/index.js"
-    },
-    "./components": {
-      "types": "./lib/components/index.d.ts",
-      "default": "./lib/components/index.js"
-    }
-  },
   "scripts": {
     "build": "rm -rf lib; NODE_ENV=production webpack"
   },
