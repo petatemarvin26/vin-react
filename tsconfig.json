@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "components/*": ["components/*"],
+      "utils/*": ["utils/*"]
+    },
+    // declaration
+    "declaration": true,
+    "declarationDir": "./lib",
+    "sourceMap": true,
+    // webpack ts config
+    "outDir": "./lib/",
+    "noImplicitAny": true,
+    "allowJs": true,
+    "module": "CommonJS",
+    "target": "ES6",
+    "jsx": "react",
+    "moduleResolution": "node",
+    // installed module purposes
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
+  },
+  "include": ["./src/**/*", "*.d.ts"],
+  "exclude": ["node_Modules"]
+}

@@ -1,0 +1,13 @@
+.button {
+  border: none;
+  background-color: red;
+}
+.button:focus {
+  outline: none;
+}
+.button:hover {
+  cursor: pointer;
+}
+.button:active {
+  opacity: 0.8;
+}
