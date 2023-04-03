@@ -3,6 +3,7 @@
     "baseUrl": "./src",
     "paths": {
       "components/*": ["components/*"],
+      "float/*": ["float/*"],
       "utils/*": ["utils/*"]
     },
     // declaration
@@ -10,14 +11,12 @@
     "declarationDir": "./lib",
     "sourceMap": true,
     // webpack ts config
-    "outDir": "./lib/",
-    "noImplicitAny": true,
-    "allowJs": true,
+    "outDir": "./lib",
     "module": "CommonJS",
     "target": "ES6",
-    "jsx": "react",
+    "jsx": "react-jsx",
     "moduleResolution": "node",
-    // installed module purposes
+    // for installed modules
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true
   },

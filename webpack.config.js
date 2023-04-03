@@ -11,21 +11,26 @@ const resolver = (dirpath) => {
 
 // TODO: webpack bundling has issue cant resolve module
 const entry = {
-  index: './src/index.ts',
-  'components/index': './src/components/index.ts',
-  'utils/index': './src/utils/index.ts'
-  // components: {
-  //   import: './src/components/index.ts',
-  //   filename: 'components/index.js'
-  // },
-  // utils: {
-  //   import: './src/utils/index.ts',
-  //   filename: 'utils/index.js'
-  // }
+  index: {
+    import: './src/index.ts',
+    filename: './index.js'
+  },
+  components: {
+    import: './src/components/index.ts',
+    filename: './components/index.js'
+  },
+  float: {
+    import: './src/float/index.ts',
+    filename: './float/index.js'
+  },
+  utils: {
+    import: './src/utils/index.ts',
+    filename: './utils/index.js'
+  }
 };
 const output = {
   path: resolver('lib'),
-  filename: '[name].js',
+  filename: 'index.js',
   library: {type: 'module'}
 };
 const experiments = {
@@ -35,6 +40,7 @@ const resolve = {
   extensions: ['.ts', '.tsx'],
   alias: {
     components: resolver('src/components'),
+    float: resolver('src/float'),
     utils: resolver('src/utils')
   }
 };
