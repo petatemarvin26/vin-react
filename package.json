@@ -7,6 +7,20 @@
     "lib",
     "src"
   ],
+  "exports": {
+    ".": {
+      "import": "./lib/index.js"
+    },
+    "./components": {
+      "import": "./lib/components/index.js"
+    },
+    "./modals": {
+      "import": "./lib/modals/index.js"
+    },
+    "./utils": {
+      "import": "./lib/utils/index.js"
+    }
+  },
   "scripts": {
     "build": "rm -rf lib; NODE_ENV=production webpack"
   },
