@@ -5,16 +5,14 @@ import styles from './.module.css';
 
 class Button extends React.PureComponent<Props> {
   render(): React.ReactNode {
-    const {children, className, style} = this.props;
+    const {children, className, style, onClick} = this.props;
 
     let buttonStyle = styles['button'];
 
-    if (className) {
-      buttonStyle += ` ${className}`;
-    }
+    if (className) buttonStyle += ` ${className}`;
 
     return (
-      <button className={buttonStyle} style={style}>
+      <button className={buttonStyle} style={style} onClick={onClick}>
         {children}
       </button>
     );

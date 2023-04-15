@@ -1,6 +1,5 @@
 .button {
   border: none;
-  background-color: red;
 }
 .button:focus {
   outline: none;
