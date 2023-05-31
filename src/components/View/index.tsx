@@ -14,9 +14,9 @@ class View extends React.PureComponent<Props> {
     }
 
     return (
-      <button className={viewStyle} style={style}>
+      <div className={viewStyle} style={style}>
         {children}
-      </button>
+      </div>
     );
   }
 }

@@ -1,5 +1,5 @@
 type OnShowModal = {
-  (component: React.ElementType): void;
+  (component: JSX.Element): void;
 };
 
 type OnHideModal = {

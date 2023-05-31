@@ -14,9 +14,9 @@ class Text extends React.PureComponent<Props> {
     }
 
     return (
-      <button className={textStyle} style={style}>
+      <p className={textStyle} style={style}>
         {children}
-      </button>
+      </p>
     );
   }
 }
