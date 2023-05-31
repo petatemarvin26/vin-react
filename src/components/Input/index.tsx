@@ -14,9 +14,9 @@ class Input extends React.PureComponent<Props> {
     }
 
     return (
-      <button className={inputStyle} style={style}>
+      <input className={inputStyle} style={style}>
         {children}
-      </button>
+      </input>
     );
   }
 }
