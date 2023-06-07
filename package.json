@@ -9,16 +9,12 @@
   ],
   "exports": {
     ".": {
-      "import": "./lib/index.js"
+      "require": "./lib/index.js",
+      "types": "./lib/index.d.ts"
     },
     "./components": {
-      "import": "./lib/components/index.js"
-    },
-    "./modals": {
-      "import": "./lib/modals/index.js"
-    },
-    "./utils": {
-      "import": "./lib/utils/index.js"
+      "require": "./lib/index.js",
+      "types": "./lib/index.d.ts"
     }
   },
   "scripts": {

@@ -12,10 +12,10 @@
     "sourceMap": true,
     // webpack ts config
     "outDir": "./lib",
-    "module": "CommonJS",
-    "target": "ES6",
+    "moduleResolution": "nodenext",
+    "module": "ESNext",
+    "target": "ES5",
     "jsx": "react-jsx",
-    "moduleResolution": "node",
     // for installed modules
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true
