@@ -8,4 +8,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: create-tag
-        run: echo ${{ github.event.pull_request.title }}
+        run: echo "${{ github.event.pull_request.title }} <<""
