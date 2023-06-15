@@ -2,7 +2,7 @@ name: production-release
 on:
   push:
     branches:
-      - prod
+      - test
 jobs:
   release_and_deploy:
     runs-on: ubuntu-latest
