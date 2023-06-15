@@ -1,19 +1,20 @@
 import React from 'react';
 
-import {Props} from './types';
+import {Props, States} from './types';
 import styles from './.module.css';
 
-class Button extends React.PureComponent<Props> {
+class Button extends React.PureComponent<Props, States> {
   render(): React.ReactNode {
-    const {children, className, style, onClick} = this.props;
-
-    let buttonStyle = styles['button'];
-
-    if (className) buttonStyle += ` ${className}`;
+    const {className, style, title, children, onClick} = this.props;
 
     return (
-      <button className={buttonStyle} style={style} onClick={onClick}>
-        {children}
+      <button
+        aria-label='button'
+        className={`${styles.button} ${className}`}
+        style={style}
+        onClick={onClick}
+      >
+        {title ? title : children}
       </button>
     );
   }

@@ -1,9 +1,10 @@
 import {CSSProperties} from 'react';
 
 type Props = {
+  source: string;
   className?: string;
   style?: CSSProperties;
-  children?: any;
+  onLoad?: () => void;
 };
 
 type States = {};
