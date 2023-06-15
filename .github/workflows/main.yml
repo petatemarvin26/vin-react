@@ -1,0 +1,11 @@
+name: production-release
+on:
+  push:
+    branches:
+      - prod
+jobs:
+  release_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: create-tag
+        run: echo ${{ github.event.pull_request.title }}
