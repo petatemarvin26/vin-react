@@ -1,22 +1,25 @@
 import React from 'react';
 
-import {Props} from './types';
+import {Props, States} from './types';
 import styles from './.module.css';
 
-class Input extends React.PureComponent<Props> {
+class Input extends React.PureComponent<Props, States> {
   render(): React.ReactNode {
-    const {children, className, style} = this.props;
-
-    let inputStyle = styles['input'];
-
-    if (className) {
-      inputStyle += ` ${className}`;
-    }
-
+    const {
+      className,
+      style,
+      placeholder,
+      value,
+      onChangeText = () => {}
+    } = this.props;
     return (
-      <input className={inputStyle} style={style}>
-        {children}
-      </input>
+      <input
+        className={`${styles.input} ${className}`}
+        style={style}
+        placeholder={placeholder}
+        value={value}
+        onChange={({target: {value}}) => onChangeText(value)}
+      />
     );
   }
 }

@@ -1,24 +1,27 @@
-import React from 'react';
-
-import {Props} from './types';
+import React, {forwardRef} from 'react';
+import {Props, States} from './types';
 import styles from './.module.css';
 
-class View extends React.PureComponent<Props> {
+class View extends React.PureComponent<Props, States> {
   render(): React.ReactNode {
-    const {children, className, style} = this.props;
-
-    let viewStyle = styles['view'];
-
-    if (className) {
-      viewStyle += ` ${className}`;
-    }
-
+    const {id, viewRef, children, style, className, onClick} = this.props;
     return (
-      <div className={viewStyle} style={style}>
+      <div
+        id={id}
+        ref={viewRef}
+        className={`${styles.view} ${className}`}
+        style={style}
+        onClick={onClick}
+      >
         {children}
       </div>
     );
   }
 }
 
-export default View;
+const forwardView: React.ForwardRefRenderFunction<View, Props> = (
+  props,
+  ref
+) => <View viewRef={ref} {...props} />;
+
+export default forwardRef<View, Props>(forwardView);

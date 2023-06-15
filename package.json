@@ -1,6 +1,6 @@
 {
   "name": "vin-react",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "This is react components",
   "main": "./lib/index.js",
   "files": [
@@ -8,18 +8,7 @@
     "src"
   ],
   "exports": {
-    ".": {
-      "import": "./lib/index.js"
-    },
-    "./components": {
-      "import": "./lib/components/index.js"
-    },
-    "./modals": {
-      "import": "./lib/modals/index.js"
-    },
-    "./utils": {
-      "import": "./lib/utils/index.js"
-    }
+    ".": "./lib/index.js"
   },
   "scripts": {
     "build": "rm -rf lib; NODE_ENV=production webpack"
