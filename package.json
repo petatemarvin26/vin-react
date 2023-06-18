@@ -1,6 +1,6 @@
 {
   "name": "vin-react",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "This is react components",
   "main": "./lib/index.js",
   "files": [
@@ -8,14 +8,7 @@
     "src"
   ],
   "exports": {
-    ".": {
-      "types": "./lib/index.d.ts",
-      "default": "./lib/index.js"
-    },
-    "./components": {
-      "types": "./lib/components/index.d.ts",
-      "default": "./lib/components/index.js"
-    }
+    ".": "./lib/index.js"
   },
   "scripts": {
     "build": "rm -rf lib; NODE_ENV=production webpack"
@@ -27,7 +20,9 @@
   "author": "Marvin Petate",
   "license": "ISC",
   "dependencies": {
-    "react": "^18.2.0"
+    "@types/react-dom": "^18.0.11",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.32",
