@@ -1,9 +1,13 @@
-import React from 'react';
-
+import {MouseEvent, CSSProperties} from 'react';
 type Props = {
-  className?: string;
-  style?: React.CSSProperties;
+  viewRef?: any;
+  style?: CSSProperties;
   children?: any;
+  className?: string;
+  id?: string;
+  onClick?: (event: MouseEvent<HTMLDivElement>) => void;
 };
 
-export type {Props};
+type States = {};
+
+export type {Props, States};
