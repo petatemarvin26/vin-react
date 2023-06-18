@@ -14,5 +14,5 @@ jobs:
 
       - name: creation
         run: |
-          echo build
-          echo deploy
+          npm install
+          npm run build
