@@ -3,7 +3,7 @@ run-name: determine the version
 on:
   push:
     branches:
-      - test/pipeline
+      - prod
 jobs:
   create:
     runs-on: ubuntu-latest
