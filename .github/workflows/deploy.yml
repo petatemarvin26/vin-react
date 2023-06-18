@@ -20,5 +20,5 @@ jobs:
 
       - name: deploy
         run: |
-          npm set //vin-react/:_authToken=${{ secrets.NPM_ACC3SS_T0K3N }}
+          npm set //npm.pkg.github.com/:_authToken ${{ secrets.NPM_ACC3SS_T0K3N }}
           npm publish
