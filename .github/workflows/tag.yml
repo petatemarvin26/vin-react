@@ -3,7 +3,7 @@ run-name: create tag
 on:
   push:
     branches:
-      - prod
+      - test/pipeline
 jobs:
   create:
     runs-on: ubuntu-latest
