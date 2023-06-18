@@ -1,9 +1,13 @@
-import React from 'react';
+import {CSSProperties} from 'react';
 
 type Props = {
+  style?: CSSProperties;
   className?: string;
-  style?: React.CSSProperties;
   children?: any;
+  title?: string;
+  onClick?: () => void;
 };
 
-export type {Props};
+type States = {};
+
+export type {Props, States};

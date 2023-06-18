@@ -1,13 +1,20 @@
 .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--FONT-REGULAR);
+  margin: 0;
+  padding: 0;
   border: none;
-  background-color: red;
+  background-color: transparent;
+  -webkit-tap-highlight-color: transparent;
 }
-.button:focus {
+
+.button:active {
   outline: none;
+  opacity: 0.5;
 }
+
 .button:hover {
   cursor: pointer;
-}
-.button:active {
-  opacity: 0.8;
 }
