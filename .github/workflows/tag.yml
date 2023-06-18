@@ -1,5 +1,5 @@
 name: tag
-run-name: create tag
+run-name: determine the version
 on:
   push:
     branches:
@@ -13,7 +13,7 @@ jobs:
           repository: ${{ github.repository }}
           token: ${{ secrets.ACC3SS_T0K3N }}
 
-      - name: creation
+      - name: commands
         run: |
           VERSION_KEYVAL=$(cat ./package.json | grep version)
           VERSION=${VERSION_KEYVAL:14:5}
