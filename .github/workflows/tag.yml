@@ -1,0 +1,23 @@
+name: tag
+run-name: determine the version
+on:
+  push:
+    branches:
+      - prod
+jobs:
+  create:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          repository: ${{ github.repository }}
+          token: ${{ secrets.ACC3SS_T0K3N }}
+
+      - name: install dependencies
+        run: sudo apt-get install -y jq
+
+      - name: commands
+        run: |
+          VERSION=$(jq -r .version package.json)
+          git tag v$VERSION
+          git push origin v$VERSION
