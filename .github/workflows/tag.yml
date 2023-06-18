@@ -1,0 +1,21 @@
+name: tag
+run-name: create tag
+on:
+  push:
+    branches:
+      - prod
+jobs:
+  create:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          repository: ${{ github.repository }}
+          token: ${{ secrets.ACC3SS_T0K3N }}
+
+      - name: creation
+        run: |
+          VERSION_KEYVAL=$(cat ./package.json | grep version)
+          VERSION=${VERSION_KEYVAL:14:5}
+          git tag v$VERSION
+          git push origin v$VERSION

@@ -1,0 +1,18 @@
+name: release
+run-name: create release
+on:
+  release:
+    types: [created]
+jobs:
+  create:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          repository: ${{ github.repository }}
+          token: ${{ secrets.ACC3SS_T0K3N }}
+
+      - name: creation
+        run: |
+          echo build
+          echo deploy
