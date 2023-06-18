@@ -1,5 +1,5 @@
-name: release
-run-name: create release
+name: deploy
+run-name: create build and deploy
 on:
   release:
     types: [created]
@@ -12,7 +12,13 @@ jobs:
           repository: ${{ github.repository }}
           token: ${{ secrets.ACC3SS_T0K3N }}
 
-      - name: creation
+      - name: install dependencies
+        run: npm install
+
+      - name: build the project
+        run: npm run build
+
+      - name: deploy
         run: |
-          echo build
-          echo deploy
+          export npm_token=${{ secrets.NPM_ACC3SS_T0K3N }}
+          npm publish

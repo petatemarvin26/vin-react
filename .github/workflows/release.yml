@@ -1,5 +1,5 @@
 name: release
-run-name: create release
+run-name: create release@${{github.ref_name}}
 on:
   push:
     tags:
@@ -14,5 +14,7 @@ jobs:
           token: ${{ secrets.ACC3SS_T0K3N }}
 
       - name: creation
+        env:
+          GH_TOKEN: ${{ secrets.ACC3SS_T0K3N }}
         run: |
-          gh create release ${{ github.ref_name }}
+          gh release create ${{ github.ref_name }}
