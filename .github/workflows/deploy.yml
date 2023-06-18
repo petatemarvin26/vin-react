@@ -20,5 +20,6 @@ jobs:
 
       - name: deploy
         run: |
-          npm set //npm.pkg.github.com/:_authToken ${{ secrets.NPM_ACC3SS_T0K3N }}
+          npm set registry "https://registry.npmjs.org/"
+          npm set //https://registry.npmjs.org//:_authToken ${{ secrets.NPM_ACC3SS_T0K3N }}
           npm publish
