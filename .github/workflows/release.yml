@@ -14,5 +14,7 @@ jobs:
           token: ${{ secrets.ACC3SS_T0K3N }}
 
       - name: creation
+        env:
+          GH_TOKEN: ${{ secrets.ACC3SS_T0K3N }}
         run: |
           gh release create ${{ github.ref_name }}
