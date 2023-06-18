@@ -12,7 +12,13 @@ jobs:
           repository: ${{ github.repository }}
           token: ${{ secrets.ACC3SS_T0K3N }}
 
-      - name: creation
+      - name: install dependencies
+        run: npm install
+
+      - name: build the project
+        run: npm run build
+
+      - name: deploy
         run: |
-          npm install
-          npm run build
+          npm publish
+          
