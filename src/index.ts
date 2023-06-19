@@ -1,6 +1,6 @@
 import {Button, Image, Indicator, Input, Text, View} from 'components';
 import {Modal} from 'float';
-import {hasLetter, toName, toPascalCase} from 'utils';
+// import {hasLetter, toName, toPascalCase} from 'utils';
 
 export {
   Modal,
@@ -9,8 +9,8 @@ export {
   Indicator,
   Input,
   Text,
-  View,
-  hasLetter,
-  toName,
-  toPascalCase
+  View
+  // hasLetter,
+  // toName,
+  // toPascalCase
 };
