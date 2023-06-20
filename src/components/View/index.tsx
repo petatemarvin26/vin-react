@@ -4,28 +4,20 @@ import styles from './.module.css';
 
 class View extends React.PureComponent<Props, States> {
   render(): React.ReactNode {
-    const {id, className, style, ref, children, onClick} = this.props;
+    const Component = forwardRef<HTMLDivElement, Props>((props, ref) => {
+      const {className, children} = this.props;
 
-    let _className = styles['view'];
-    if (className) _className = ` ${className}`;
+      let _className = styles['view'];
+      if (className) _className = ` ${className}`;
 
-    return (
-      <div
-        id={id}
-        ref={ref}
-        className={_className}
-        style={style}
-        onClick={onClick}
-      >
-        {children}
-      </div>
-    );
+      return (
+        <div {...props} className={_className} ref={ref}>
+          {children}
+        </div>
+      );
+    });
+    return <Component {...this.props} />;
   }
 }
 
-const forwardView: React.ForwardRefRenderFunction<HTMLDivElement, Props> = (
-  props,
-  ref
-) => <View ref={ref} {...props} />;
-
-export default forwardRef<HTMLDivElement, Props>(forwardView);
+export default View;
