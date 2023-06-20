@@ -5,7 +5,10 @@ type Props = {
   style?: CSSProperties;
   placeholder?: string;
   value?: string;
-  onChangeText?: (text: string) => void;
+  onChangeText?: (
+    value: string,
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => void;
 };
 
 type States = {};
