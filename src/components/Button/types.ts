@@ -1,11 +1,11 @@
-import {CSSProperties} from 'react';
+import {CSSProperties, MouseEventHandler} from 'react';
 
 type Props = {
   style?: CSSProperties;
   className?: string;
   children?: any;
   title?: string;
-  onClick?: () => void;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
 };
 
 type States = {};
