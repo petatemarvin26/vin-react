@@ -1,6 +1,6 @@
 import {MouseEvent, CSSProperties} from 'react';
 type Props = {
-  ref?: any;
+  reference?: (ref: HTMLDivElement) => any;
   style?: CSSProperties;
   children?: any;
   className?: string;
