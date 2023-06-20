@@ -4,7 +4,7 @@ import styles from './.module.css';
 
 class View extends React.PureComponent<Props, States> {
   render(): React.ReactNode {
-    const {id, className, style, viewRef, children, onClick} = this.props;
+    const {id, className, style, ref, children, onClick} = this.props;
 
     let _className = styles['view'];
     if (className) _className = ` ${className}`;
@@ -12,7 +12,7 @@ class View extends React.PureComponent<Props, States> {
     return (
       <div
         id={id}
-        ref={viewRef}
+        ref={ref}
         className={_className}
         style={style}
         onClick={onClick}
@@ -23,9 +23,9 @@ class View extends React.PureComponent<Props, States> {
   }
 }
 
-const forwardView: React.ForwardRefRenderFunction<View, Props> = (
+const forwardView: React.ForwardRefRenderFunction<HTMLDivElement, Props> = (
   props,
   ref
-) => <View viewRef={ref} {...props} />;
+) => <View ref={ref} {...props} />;
 
-export default forwardRef<View, Props>(forwardView);
+export default forwardRef<HTMLDivElement, Props>(forwardView);
