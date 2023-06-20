@@ -4,19 +4,16 @@ import styles from './.module.css';
 
 class View extends React.PureComponent<Props, States> {
   render(): React.ReactNode {
-    const Component = forwardRef<HTMLDivElement, Props>((props, ref) => {
-      const {className, children} = this.props;
+    const {reference = () => {}, className, children, ...rest} = this.props;
 
-      let _className = styles['view'];
-      if (className) _className = ` ${className}`;
+    let _className = styles['view'];
+    if (className) _className = ` ${className}`;
 
-      return (
-        <div {...props} className={_className} ref={ref}>
-          {children}
-        </div>
-      );
-    });
-    return <Component {...this.props} />;
+    return (
+      <div {...rest} className={_className} ref={(_ref) => reference(_ref)}>
+        {children}
+      </div>
+    );
   }
 }
 
