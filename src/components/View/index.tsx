@@ -4,12 +4,16 @@ import styles from './.module.css';
 
 class View extends React.PureComponent<Props, States> {
   render(): React.ReactNode {
-    const {id, viewRef, children, style, className, onClick} = this.props;
+    const {id, className, style, viewRef, children, onClick} = this.props;
+
+    let _className = styles['view'];
+    if (className) _className = ` ${className}`;
+
     return (
       <div
         id={id}
         ref={viewRef}
-        className={`${styles.view} ${className}`}
+        className={_className}
         style={style}
         onClick={onClick}
       >

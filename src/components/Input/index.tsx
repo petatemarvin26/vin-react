@@ -12,13 +12,17 @@ class Input extends React.PureComponent<Props, States> {
       value,
       onChangeText = () => {}
     } = this.props;
+
+    let _className = styles['input'];
+    if (className) _className += ` ${className}`;
+
     return (
       <input
-        className={`${styles.input} ${className}`}
+        className={_className}
         style={style}
         placeholder={placeholder}
         value={value}
-        onChange={({target: {value}}) => onChangeText(value)}
+        onChange={(e) => onChangeText(e.target.value, e)}
       />
     );
   }

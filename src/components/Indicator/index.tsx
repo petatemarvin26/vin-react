@@ -1,3 +1,4 @@
 import CircleSnail from './CircleSnail';
+import Bar from './Bar';
 
-export {CircleSnail};
+export {CircleSnail, Bar};

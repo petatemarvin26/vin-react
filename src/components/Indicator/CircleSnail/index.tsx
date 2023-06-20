@@ -1,24 +1,7 @@
 import {PureComponent, ReactNode} from 'react';
 
 import styles from './.module.css';
-
-type anchorStyle = 'inherit' | 'butt' | 'round' | 'square' | undefined;
-
-interface Props {
-  anchorStyle?: anchorStyle;
-  progress?: number;
-  color?: string;
-  size?: any;
-  thickness?: string;
-  type?: string;
-}
-interface State {
-  PI: number;
-  SIZE: string;
-  RADIUS: string;
-  POS: string;
-  CIRCUMFERENCE: string;
-}
+import {Props, State} from './types';
 
 class CircleSnail extends PureComponent<Props, State> {
   constructor(props: Props) {
@@ -54,7 +37,7 @@ class CircleSnail extends PureComponent<Props, State> {
   }
 
   render(): ReactNode {
-    const {progress, thickness, color, anchorStyle} = this.props;
+    const {style, progress, thickness, color, anchorStyle} = this.props;
     const {SIZE, POS, RADIUS, CIRCUMFERENCE} = this.state;
 
     return (
@@ -63,7 +46,7 @@ class CircleSnail extends PureComponent<Props, State> {
         width={SIZE}
         height={SIZE}
         fill='transparent'
-        className={`${progress ? '' : styles.animating} ${styles.circleSnail}`}
+        style={style}
       >
         <circle
           cx={POS}
