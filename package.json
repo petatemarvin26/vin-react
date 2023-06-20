@@ -13,12 +13,20 @@
   "scripts": {
     "build": "rm -rf lib; NODE_ENV=production webpack"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/petatemarvin26/vin-react.git"
+  },
   "keywords": [
     "react",
     "DOM"
   ],
   "author": "Marvin Petate",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/petatemarvin26/vin-react/issues"
+  },
+  "homepage": "https://github.com/petatemarvin26/vin-react#readme",
   "dependencies": {
     "@types/react-dom": "^18.0.11",
     "react": "^18.2.0",
