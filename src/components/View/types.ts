@@ -1,11 +1,14 @@
-import {MouseEvent, CSSProperties} from 'react';
+import {CSSProperties, MouseEventHandler, UIEventHandler} from 'react';
 type Props = {
   reference?: (ref: HTMLDivElement) => any;
   style?: CSSProperties;
   children?: any;
   className?: string;
   id?: string;
-  onClick?: (event: MouseEvent<HTMLDivElement>) => void;
+  onMouseEnter?: MouseEventHandler<HTMLDivElement>;
+  onMouseLeave?: MouseEventHandler<HTMLDivElement>;
+  onClick?: MouseEventHandler<HTMLDivElement>;
+  onScroll?: UIEventHandler<HTMLDivElement>;
 };
 
 type States = {};
