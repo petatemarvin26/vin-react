@@ -7,7 +7,7 @@ class Text extends React.PureComponent<Props, States> {
   render(): React.ReactNode {
     const {children, className, style} = this.props;
 
-    let _className = styles['className'];
+    let _className = styles['text'];
     if (className) _className += ` ${className}`;
 
     return (
