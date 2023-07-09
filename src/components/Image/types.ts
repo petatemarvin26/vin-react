@@ -1,10 +1,12 @@
-import {CSSProperties} from 'react';
+import {CSSProperties, DragEventHandler} from 'react';
 
 type Props = {
-  source: string;
+  src: string;
   className?: string;
   style?: CSSProperties;
+  draggable?: boolean;
   onLoad?: () => void;
+  onDragStart?: DragEventHandler<HTMLImageElement>;
 };
 
 type States = {};
