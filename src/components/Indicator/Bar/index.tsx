@@ -17,7 +17,7 @@ class Bar extends PureComponent<Props> {
         <div
           {...rest}
           className={_thumbClass}
-          style={{...thumbStyle, width: `${progress}%`}}
+          style={{width: `${progress}%`, ...thumbStyle}}
         />
       </div>
     );

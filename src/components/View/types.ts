@@ -4,7 +4,7 @@ type Props = {
   style?: CSSProperties;
   children?: any;
   className?: string;
-  id?: string;
+  id?: any;
   onMouseEnter?: MouseEventHandler<HTMLDivElement>;
   onMouseLeave?: MouseEventHandler<HTMLDivElement>;
   onClick?: MouseEventHandler<HTMLDivElement>;

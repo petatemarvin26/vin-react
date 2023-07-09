@@ -1,6 +1,6 @@
 {
   "name": "vin-react",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "This is react components",
   "main": "./lib/index.js",
   "files": [

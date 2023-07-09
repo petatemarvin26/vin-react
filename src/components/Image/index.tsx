@@ -4,15 +4,18 @@ import {Props, States} from './types';
 
 class Image extends React.PureComponent<Props, States> {
   render(): React.ReactNode {
-    const {source, style, className, onLoad} = this.props;
+    const {src, style, className, draggable, onLoad, onDragStart} =
+      this.props;
 
     return (
       <img
-        src={source}
+        src={src}
         className={className}
         style={style}
         alt={className}
         onLoad={onLoad}
+        onDragStart={onDragStart}
+        draggable={draggable}
       />
     );
   }
