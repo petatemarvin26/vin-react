@@ -6,9 +6,14 @@ type Props = {
   style?: CSSProperties;
   draggable?: boolean;
   onLoad?: () => void;
+  onLoadStart?: () => void;
+  onLoadEnd?: () => void;
+  onProgress?: (percent: number) => void;
   onDragStart?: DragEventHandler<HTMLImageElement>;
 };
 
-type States = {};
+type States = {
+  src: any;
+};
 
 export type {Props, States};
