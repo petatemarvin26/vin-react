@@ -60,4 +60,12 @@ export const smartCompare: SmartCompare = (checks) => {
   };
 };
 
-export {hasLetter};
+const formatNumber = (value: number, options?: Intl.NumberFormatOptions) => {
+  const num = Intl.NumberFormat('en-US', {
+    maximumFractionDigits: 2,
+    ...options
+  });
+  return parseFloat(num.format(value));
+};
+
+export {hasLetter, formatNumber};

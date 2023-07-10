@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {Props, States} from './types';
+import {formatNumber} from 'utils/helper';
 
 class Image extends React.PureComponent<Props, States> {
   constructor(props: Props) {
@@ -26,7 +27,9 @@ class Image extends React.PureComponent<Props, States> {
     request.responseType = 'arraybuffer';
     request.open('GET', src, true);
     request.onprogress = function (e) {
-      const loadPercentage = Math.floor((e.loaded / e.total) * 100);
+      const loaded = formatNumber(e.loaded);
+      const total = formatNumber(e.total);
+      const loadPercentage = Math.floor((loaded / total) * 100);
       onProgress && onProgress(loadPercentage);
     };
     request.onloadstart = () => {
