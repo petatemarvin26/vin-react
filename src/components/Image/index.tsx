@@ -10,34 +10,36 @@ class Image extends React.PureComponent<Props, States> {
   }
 
   componentDidMount(): void {
-    this.onRequest();
-  }
-
-  onRequest = () => {
-    const {src, onProgress, onLoadStart, onLoadEnd} = this.props;
+    const {src, onProgress} = this.props;
 
     if (onProgress) {
-      const request = new XMLHttpRequest();
-      request.responseType = 'arraybuffer';
-      request.open('GET', src, true);
-      request.onprogress = function (e) {
-        const loadPercentage = Math.floor((e.loaded / e.total) * 100);
-        onProgress && onProgress(loadPercentage);
-      };
-      request.onloadstart = () => {
-        onLoadStart && onLoadStart();
-      };
-      request.onloadend = () => {
-        const blob = new Blob([request.response]);
-        const source = window.URL.createObjectURL(blob);
-        this.setState({src: source});
-
-        onLoadEnd && onLoadEnd();
-      };
-      request.send();
+      this.renderImage(src);
       return;
     }
+
     this.setState({src});
+  }
+
+  renderImage = (src: string) => {
+    const {onProgress, onLoadStart, onLoadEnd} = this.props;
+    const request = new XMLHttpRequest();
+    request.responseType = 'arraybuffer';
+    request.open('GET', src, true);
+    request.onprogress = function (e) {
+      const loadPercentage = Math.floor((e.loaded / e.total) * 100);
+      onProgress && onProgress(loadPercentage);
+    };
+    request.onloadstart = () => {
+      onLoadStart && onLoadStart();
+    };
+    request.onloadend = () => {
+      const blob = new Blob([request.response]);
+      const source = window.URL.createObjectURL(blob);
+      this.setState({src: source});
+
+      onLoadEnd && onLoadEnd();
+    };
+    request.send();
   };
 
   render(): React.ReactNode {
