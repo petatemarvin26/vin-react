@@ -10,13 +10,11 @@ class Image extends React.PureComponent<Props, States> {
   }
 
   componentDidMount(): void {
-    const {src, onProgress} = this.props;
-
-    if (onProgress) {
+    const {src, onProgress, onLoadStart, onLoadEnd} = this.props;
+    if (onProgress || onLoadStart || onLoadEnd) {
       this.renderImage(src);
       return;
     }
-
     this.setState({src});
   }
 
