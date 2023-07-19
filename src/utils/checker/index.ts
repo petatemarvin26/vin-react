@@ -1,25 +1,74 @@
-import {FunctionVal} from './types';
+import {FunctionVal, NonCircularStringify, SmartCompare} from './types';
 
-const toName: FunctionVal<string> = (value) => {
-  const initial = value.substring(0, 1).toUpperCase();
-  const rest = value.substring(1).toLowerCase();
-  return `${initial}${rest}`;
+const hasLetter: FunctionVal<string> = (value) => {
+  return /(?=([A-Za-z]))/.test(value);
 };
 
-const toPascalCase: FunctionVal<string> = (value) => {
-  const names = value.split(' ');
+const formatNumber = (value: number, options?: Intl.NumberFormatOptions) => {
+  const num = Intl.NumberFormat('en-US', {
+    maximumFractionDigits: 2,
+    ...options
+  });
+  return parseFloat(num.format(value));
+};
 
-  let pascal_name = '';
-  let index = 0;
-
-  for (const name of names) {
-    pascal_name += name;
-    if (index + 1 !== names.length) {
-      pascal_name += ' ';
+/**
+ * Remove circular object reference and return the rest
+ * @param {object} obj
+ * @returns {object}
+ */
+const nonCircularStringify: NonCircularStringify = (obj) => {
+  let temp = new Set();
+  return JSON.stringify(obj, function (key, val) {
+    if (typeof val === 'object' && val) {
+      if (temp.has(val)) return;
+      temp.add(val);
     }
-    index += 1;
-  }
-  return pascal_name;
+    return val;
+  });
 };
 
-export {toName, toPascalCase};
+/**
+ * Smart Compare is utility function where it compares the previous and new property of a component
+ * most of the case it used in `React.memo(Component, smartCompare(['prop1', 'prop1.subprop1']))`
+ * @param {Array<string>} checks serve as the property what you want to hookup if gets update
+ * @return {boolean} Returns true if has no change return false if has change
+ */
+const smartCompare: SmartCompare = (checks) => {
+  /**
+   * @param {object} prev
+   * @param {object} next
+   * @returns {boolean}
+   */
+  return (prev, next) => {
+    for (const check of checks) {
+      let _check = check.includes('.') ? check.split('.') : check,
+        flag = false,
+        _prev = prev,
+        _next = next;
+
+      if (Array.isArray(_check)) {
+        for (const prop of _check) {
+          _prev = _prev[prop];
+          _next = _next[prop];
+        }
+      } else {
+        _prev = prev[check];
+        _next = next[check];
+      }
+
+      if (typeof _prev === 'object') {
+        flag = nonCircularStringify(_prev) === nonCircularStringify(_next);
+        // } else if (typeof _prev === 'function') {
+        //   flag = String(_prev) === String(_next);
+      } else {
+        flag = _prev === _next;
+      }
+
+      if (!flag) return false;
+    }
+    return true;
+  };
+};
+
+export {hasLetter, formatNumber, smartCompare};
