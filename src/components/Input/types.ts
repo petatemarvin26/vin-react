@@ -5,6 +5,7 @@ type Props = {
   style?: CSSProperties;
   placeholder?: string;
   value?: string;
+  prefixComponent?: React.ReactNode;
   onChangeText?: (
     value: string,
     event: React.ChangeEvent<HTMLInputElement>
