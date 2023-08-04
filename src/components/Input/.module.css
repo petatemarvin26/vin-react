@@ -1,11 +1,29 @@
-.input {
+.main-pane {
+  display: flex;
+  flex-direction: row;
   margin: 0;
   padding: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-pane .input {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0 0 0 15px;
   border: none;
-  font-family: var(--FONT-REGULAR);
+  font-size: inherit;
+  font-family: inherit;
   background-color: transparent;
 }
 
 .input:focus {
   outline: none;
+}
+
+.main-pane .prefix-pane {
+  display: flex;
+  margin: 0;
+  padding: 0 0 0 15px;
 }

@@ -1,71 +1,41 @@
-import {FunctionVal, NonCircularStringify, SmartCompare} from './types';
+import {FunctionVal} from './types';
 
-const hasLetter: FunctionVal<string> = (value) => {
-  return /(?=([A-Za-z]))/.test(value);
+const toPascalCase: FunctionVal<string> = (value) => {
+  const initial = value.substring(0, 1).toUpperCase();
+  const rest = value.substring(1).toLowerCase();
+  return `${initial}${rest}`;
 };
 
-/**
- * Remove circular object reference and return the rest
- * @param {object} obj
- * @returns {object}
- */
-const nonCircularStringify: NonCircularStringify = (obj) => {
-  let temp = new Set();
-  return JSON.stringify(obj, function (key, val) {
-    if (typeof val === 'object' && val) {
-      if (temp.has(val)) return;
-      temp.add(val);
+const toNameCase: FunctionVal<string> = (value) => {
+  const names = value.split(' ');
+  let pascal_name = '';
+  for (let n = 0; n < names.length; n++) {
+    pascal_name += toPascalCase(names[n]);
+    if (n !== names.length - 1) {
+      pascal_name += ' ';
     }
-    return val;
-  });
+  }
+  return pascal_name;
 };
 
-/**
- * Smart Compare is utility function where it compares the previous and new property of a component
- * @param {Array<string>} checks serve as the property what you want to hookup if gets update
- * @return {boolean} Returns true if has no change return false if has change
- */
-export const smartCompare: SmartCompare = (checks) => {
-  /**
-   * @param {object} prev
-   * @param {object} next
-   * @returns {boolean}
-   */
-  return (prev, next) => {
-    for (const check of checks) {
-      let _check = check.includes('.') ? check.split('.') : check,
-        flag = false,
-        _prev = prev,
-        _next = next;
-
-      if (Array.isArray(_check)) {
-        for (const prop of _check) {
-          _prev = _prev[prop];
-          _next = _next[prop];
-        }
-      } else {
-        _prev = prev[check];
-        _next = next[check];
+const toFlat: FunctionVal<object> = (obj) => {
+  const keys = Object.keys(obj);
+  const vals = Object.values(obj);
+  let flat_obj = {};
+  for (let k in keys) {
+    const val = vals[k];
+    if (typeof val === 'object') {
+      const fl_obj = toFlat(val),
+        fl_keys = Object.keys(fl_obj),
+        fl_vals = Object.values(fl_obj);
+      for (let fk in fl_keys) {
+        flat_obj[`${keys[k]}.${fl_keys[fk]}`] = fl_vals[fk];
       }
-
-      if (typeof _prev === 'object') {
-        flag = nonCircularStringify(_prev) === nonCircularStringify(_next);
-      } else {
-        flag = _prev === _next;
-      }
-
-      if (!flag) return false;
+      continue;
     }
-    return true;
-  };
+    flat_obj[keys[k]] = val;
+  }
+  return flat_obj;
 };
 
-const formatNumber = (value: number, options?: Intl.NumberFormatOptions) => {
-  const num = Intl.NumberFormat('en-US', {
-    maximumFractionDigits: 2,
-    ...options
-  });
-  return parseFloat(num.format(value));
-};
-
-export {hasLetter, formatNumber};
+export {toNameCase, toPascalCase};

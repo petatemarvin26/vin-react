@@ -1,0 +1,6 @@
+.main-pane {
+  display: flex;
+  flex: 0;
+  flex-direction: row;
+  gap: 5px;
+}

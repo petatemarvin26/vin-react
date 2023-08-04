@@ -10,20 +10,26 @@ class Input extends React.PureComponent<Props, States> {
       style,
       placeholder,
       value,
+      prefixComponent,
       onChangeText = () => {}
     } = this.props;
 
-    let _className = styles['input'];
+    let _className = styles['main-pane'];
     if (className) _className += ` ${className}`;
 
     return (
-      <input
-        className={_className}
-        style={style}
-        placeholder={placeholder}
-        value={value}
-        onChange={(e) => onChangeText(e.target.value, e)}
-      />
+      <div className={_className}>
+        {prefixComponent && (
+          <div className={styles['prefix-pane']}>{prefixComponent}</div>
+        )}
+        <input
+          className={styles['input']}
+          style={style}
+          placeholder={placeholder}
+          value={value}
+          onChange={(e) => onChangeText(e.target.value, e)}
+        />
+      </div>
     );
   }
 }

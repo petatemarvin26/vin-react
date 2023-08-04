@@ -1,0 +1,52 @@
+.main-pane {
+  display: 'flex';
+  flex: 0;
+  width: 30px;
+  height: 100px;
+  align-items: center;
+  justify-content: center;
+  font-size: 100%;
+}
+
+.main-pane button {
+  display: flex;
+  width: 100%;
+  height: 25%;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  font-size: inherit;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+}
+.main-pane button:active {
+  opacity: 0.8;
+}
+.main-pane button:focus {
+  outline: none;
+}
+.main-pane button:hover {
+  cursor: pointer;
+}
+
+.main-pane .number {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  height: 50%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.main-pane .icon {
+}
+
+.main-pane .add-btn {
+}
+.main-pane .minus-btn {
+}
