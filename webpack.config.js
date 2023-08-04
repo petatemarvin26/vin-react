@@ -4,6 +4,7 @@ const transform = require('ts-transform-paths').default;
 const is_prod = process.env.NODE_ENV === 'production';
 const TS_FILES = /\.(ts|tsx)$/;
 const STYLE_FILES = /\.(s?css)$/;
+const SVG = /\.(svg)$/;
 
 const resolver = (dirpath) => {
   return path.resolve(__dirname, dirpath);
@@ -67,6 +68,10 @@ const config = {
       {
         test: STYLE_FILES,
         use: ['style-loader', 'css-loader']
+      },
+      {
+        test: SVG,
+        use: ['@svgr/webpack', 'url-loader']
       }
     ]
   }
