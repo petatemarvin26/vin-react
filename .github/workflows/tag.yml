@@ -1,5 +1,5 @@
 name: tag
-run-name: determine the version
+run-name: create tag
 on:
   push:
     branches:

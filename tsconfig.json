@@ -13,7 +13,7 @@
     // webpack ts config
     "outDir": "./lib",
     "moduleResolution": "nodenext",
-    "module": "ESNext",
+    "module": "NodeNext",
     "target": "ES5",
     "jsx": "react-jsx",
     // for installed modules
