@@ -12,8 +12,8 @@
     "sourceMap": true,
     // webpack ts config
     "outDir": "./lib",
-    "moduleResolution": "nodenext",
-    "module": "NodeNext",
+    "moduleResolution": "Bundler",
+    "module": "ESNext",
     "target": "ES5",
     "jsx": "react-jsx",
     // for installed modules
