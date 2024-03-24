@@ -1,7 +1,12 @@
+# depencies
 node_modules
 
-tsconfig.json
+# source files
+src
 
+# js config
+tsconfig.json
 webpack.config.js
 
+# configuration
 .*

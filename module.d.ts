@@ -5,4 +5,4 @@ declare module '*.svg' {
   export default Svg;
 }
 
-declare module '*.module.css';
+declare module '*.css';

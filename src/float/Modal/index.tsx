@@ -22,7 +22,7 @@ class Provider extends React.PureComponent<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {component: null};
-    this.root = document.getElementById(props.portalTo ?? 'root');
+    this.root = document.getElementById(props.portalTo ?? 'root')!;
   }
 
   onShowModal: OnShowModal = (component) => {
@@ -36,15 +36,11 @@ class Provider extends React.PureComponent<Props, State> {
 
   render(): React.ReactNode {
     const {root, onShowModal, onHideModal} = this;
-    const {portalTo, children} = this.props;
+    const {children} = this.props;
     const {component} = this.state;
 
     const renderTemplate = (
-      <Transparent
-        portalTo={portalTo}
-        onClose={onHideModal}
-        visible={!!component}
-      >
+      <Transparent root={root} onClose={onHideModal} visible={!!component}>
         {component}
       </Transparent>
     );
