@@ -21,7 +21,7 @@ const toNameCase: FunctionVal<string> = (value) => {
 const toFlat: FunctionVal<object> = (obj) => {
   const keys = Object.keys(obj);
   const vals = Object.values(obj);
-  let flat_obj = {};
+  let flat_obj: {[k: string]: any} = {};
   for (let k in keys) {
     const val = vals[k];
     if (typeof val === 'object') {

@@ -28,18 +28,7 @@ const nonCircularStringify: NonCircularStringify = (obj) => {
   });
 };
 
-/**
- * Smart Compare is utility function where it compares the previous and new property of a component
- * most of the case it used in `React.memo(Component, smartCompare(['prop1', 'prop1.subprop1']))`
- * @param {Array<string>} checks serve as the property what you want to hookup if gets update
- * @return {boolean} Returns true if has no change return false if has change
- */
 const smartCompare: SmartCompare = (checks) => {
-  /**
-   * @param {object} prev
-   * @param {object} next
-   * @returns {boolean}
-   */
   return (prev, next) => {
     for (const check of checks) {
       let _check = check.includes('.') ? check.split('.') : check,

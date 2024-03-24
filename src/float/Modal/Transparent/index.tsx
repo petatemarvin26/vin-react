@@ -9,7 +9,7 @@ class Transparent extends React.PureComponent<Props> {
 
   constructor(props: Props) {
     super(props);
-    this.root = document.getElementById(props.portalTo);
+    this.root = this.props.root;
     this.ref = createRef<HTMLDivElement>();
     this.handleClick.bind(this);
   }

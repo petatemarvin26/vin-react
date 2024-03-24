@@ -10,7 +10,7 @@ class View extends React.PureComponent<Props, States> {
     if (className) _className = ` ${className}`;
 
     return (
-      <div {...rest} className={_className} ref={(_ref) => reference(_ref)}>
+      <div {...rest} className={_className} ref={(_ref) => reference(_ref!)}>
         {children}
       </div>
     );

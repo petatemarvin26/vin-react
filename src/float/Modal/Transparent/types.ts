@@ -1,8 +1,8 @@
 type Props = {
   ref?: any;
   visible: boolean;
+  root: HTMLElement;
   children?: any;
-  portalTo?: string;
   onClose?: {(): void};
 };
 

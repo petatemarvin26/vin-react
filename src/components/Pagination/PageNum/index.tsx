@@ -5,7 +5,7 @@ import styles from './.module.css';
 
 class PageNum extends React.PureComponent<Props> {
   handleClick = () => {
-    const {number, onClick} = this.props;
+    const {number = 0, onClick} = this.props;
     onClick && onClick(number);
   };
 

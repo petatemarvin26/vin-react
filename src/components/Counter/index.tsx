@@ -10,7 +10,7 @@ class Counter extends React.PureComponent<Props> {
   }
 
   handleChange = (numericand: number) => () => {
-    const {min, max, value, onChange} = this.props;
+    const {min = 0, max = 0, value = 0, onChange} = this.props;
     const next = value + numericand;
 
     if (next < min) return;
