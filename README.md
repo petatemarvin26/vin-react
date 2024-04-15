@@ -1,4 +1,4 @@
-## VIN-REACT (WORKING ON DOCS)
+## VIN-REACT (DOCUMENTATION OUTDATED)
 
 is React library that focus the simplest way to use component and utilize the powerful of Flexbox, Cutomizable and Simplicity
 
