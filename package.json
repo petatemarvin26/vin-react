@@ -1,6 +1,6 @@
 {
   "name": "vin-react",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "This is library is exclusive react",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
