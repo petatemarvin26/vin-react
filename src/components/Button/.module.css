@@ -1,4 +1,4 @@
-.button {
+.vr-button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,11 +10,11 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-.button:active {
+.vr-button:active {
   outline: none;
   opacity: 0.8;
 }
 
-.button:hover {
+.vr-button:hover {
   cursor: pointer;
 }

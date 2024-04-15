@@ -1,10 +1,12 @@
+import {ClassNames} from 'hoc/connectStyle/types';
 import {CSSProperties, MouseEventHandler, UIEventHandler} from 'react';
 type Props = {
-  reference?: (ref: HTMLDivElement) => any;
+  id?: any;
   style?: CSSProperties;
   children?: any;
   className?: string;
-  id?: any;
+  classNames?: ClassNames;
+  reference?: (ref: HTMLDivElement) => any;
   onMouseEnter?: MouseEventHandler<HTMLDivElement>;
   onMouseLeave?: MouseEventHandler<HTMLDivElement>;
   onClick?: MouseEventHandler<HTMLDivElement>;

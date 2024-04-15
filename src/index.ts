@@ -1,7 +1,7 @@
 import {
   Button,
   Counter,
-  HeadText,
+  HeaderText,
   Image,
   Indicator,
   Input,
@@ -17,12 +17,13 @@ import {
   toNameCase,
   toPascalCase
 } from './utils';
+import {connectStyle} from './hoc';
 
 export {
   // dom components
   Button,
   Counter,
-  HeadText,
+  HeaderText,
   Image,
   Indicator,
   Input,
@@ -31,6 +32,8 @@ export {
   View,
   // floating components
   Modal,
+  // hoc
+  connectStyle,
   // utilities
   formatNumber,
   hasLetter,

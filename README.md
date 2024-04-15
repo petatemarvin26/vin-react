@@ -1,6 +1,14 @@
-## VIN-REACT
+## VIN-REACT (WORKING ON DOCS)
 
-is [ES][nodejs] module runs at React Application focus on more efficient way to use complex pattern of reusable components
+is React library that focus the simplest way to use component and utilize the powerful of Flexbox, Cutomizable and Simplicity
+
+#
+
+### Table Contents
+
+- [Installation](#Installation)
+- [Features](#Features)
+- [Examples](#Examples)
 
 #
 
@@ -14,13 +22,30 @@ npm install vin-react
 
 ### Features
 
-- lightweight components
-- convenient to use
-- cutomizable
+##### Components
+
+- Button
+- Counter
+- HeaderText
+- Image
+- Indicator
+- Input
+- Pagination
+- Text
+- View
+
+##### Floating Components
+
+- Modal
+- Toast
+
+##### HOC
+
+- connectStyle
 
 #
 
-### Usage Examples
+### Examples
 
 ```JSX
 //index.js

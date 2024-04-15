@@ -1,3 +1,4 @@
+import {ClassNames} from 'hoc/connectStyle/types';
 import {FunctionVal} from './types';
 
 const toPascalCase: FunctionVal<string> = (value) => {
