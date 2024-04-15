@@ -1,6 +1,6 @@
 import Button from './Button';
 import Counter from './Counter';
-import HeadText from './HeadText';
+import HeaderText from './HeaderText';
 import Image from './Image';
 import * as Indicator from './Indicator';
 import Input from './Input';
@@ -11,7 +11,7 @@ import View from './View';
 export {
   Button,
   Counter,
-  HeadText,
+  HeaderText,
   Image,
   Indicator,
   Input,

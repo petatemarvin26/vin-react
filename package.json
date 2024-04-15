@@ -1,6 +1,6 @@
 {
   "name": "vin-react",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "This is library is exclusive react",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -23,13 +23,17 @@
     "./lib/utils": {
       "import": "./lib/utils/index.js",
       "types": "./lib/utils/index.d.ts"
+    },
+    "./lib/hoc": {
+      "import": "./lib/hoc/index.js",
+      "types": "./lib/hoc/index.d.ts"
     }
   },
   "scripts": {
-    "types": "tsc",
+    "types": "tspc",
     "clean": "rm -rf ./lib",
     "bundle": "webpack --config ./config/webpack.config.js",
-    "build": "npm run clean; npm run types; npm run bundle"
+    "build": "npm run clean && npm run bundle && npm run types"
   },
   "repository": {
     "type": "git",
@@ -64,6 +68,7 @@
     "style-loader": "^3.3.2",
     "tsconfig-paths-webpack-plugin": "^4.1.0",
     "typescript": "^5.0.3",
+    "typescript-transform-paths": "^3.4.7",
     "url-loader": "^4.1.1",
     "webpack": "^5.77.0",
     "webpack-cli": "^5.0.1"
