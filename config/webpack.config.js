@@ -1,4 +1,4 @@
-// const TsPathPlugin = require('tsconfig-paths-webpack-plugin');
+const TsPathPlugin = require('tsconfig-paths-webpack-plugin');
 const TsErrorPlugin = require('fork-ts-checker-webpack-plugin');
 
 const {TS_FILE, CSS_FILE, SVG_FILE} = require('./constants');
@@ -29,6 +29,10 @@ module.exports = (env) => {
       utils: {
         import: resolver('src/utils/index.ts'),
         filename: './utils/index.js'
+      },
+      hoc: {
+        import: resolver('src/hoc/index.ts'),
+        filename: './hoc/index.js'
       }
     },
     output: {
@@ -65,9 +69,9 @@ module.exports = (env) => {
       extensions: ['.ts', '.tsx'],
       plugins: [
         // This plugin temporarily disabled because cant resolve module in declaration files
-        // new TsPathPlugin({
-        //   configFile: resolver('tsconfig.json')
-        // })
+        new TsPathPlugin({
+          configFile: resolver('tsconfig.json')
+        })
       ]
     }
   };

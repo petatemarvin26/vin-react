@@ -1,8 +1,9 @@
 import React, {ReactNode} from 'react';
-import styles from './.module.css';
-import {DownIcon, UpIcon} from './icons';
+import {connectStyle} from 'hoc';
 
 import {Props} from './types';
+import {DownIcon, UpIcon} from './icons';
+import styles from './.module.css';
 
 class Counter extends React.PureComponent<Props> {
   constructor(props: Props) {
@@ -21,23 +22,32 @@ class Counter extends React.PureComponent<Props> {
 
   render(): ReactNode {
     const {handleChange} = this;
-    const {className, value = 0} = this.props;
+    const {
+      className,
+      value = 0,
+      classNames = () => '',
+      classNameButton,
+      classNameIcon,
+      classNameNumber
+    } = this.props;
 
-    let _className = styles['main-pane'];
-    if (className) _className += ` ${className}`;
+    const counterStyle = classNames(['vr-counter', className]);
+    const btnActionStyle = classNames(['vr-btn-action', classNameButton]);
+    const iconStyle = classNames(['vr-icon', classNameIcon]);
+    const numberStyle = classNames(['vr-number', classNameNumber]);
 
     return (
-      <div className={_className}>
-        <button className={styles['add-btn']} onClick={handleChange(1)}>
-          <UpIcon className={styles['icon']} />
+      <div className={counterStyle}>
+        <button className={btnActionStyle} onClick={handleChange(1)}>
+          <UpIcon className={iconStyle} />
         </button>
-        <p className={styles['number']}>{value}</p>
-        <button className={styles['minus-btn']} onClick={handleChange(-1)}>
-          <DownIcon className={styles['icon']} />
+        <p className={numberStyle}>{value}</p>
+        <button className={btnActionStyle} onClick={handleChange(-1)}>
+          <DownIcon className={iconStyle} />
         </button>
       </div>
     );
   }
 }
 
-export default Counter;
+export default connectStyle(styles)(Counter);
