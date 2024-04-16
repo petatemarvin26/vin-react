@@ -7,8 +7,8 @@ type OnHideModal = {
 };
 
 type Value = {
-  onShowModal: OnShowModal;
-  onHideModal: OnHideModal;
+  showModal: OnShowModal;
+  hideModal: OnHideModal;
 };
 
 type State = {

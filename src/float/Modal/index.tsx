@@ -11,8 +11,8 @@ import {
 } from './types';
 
 const initState: Value = {
-  onShowModal() {},
-  onHideModal() {}
+  showModal() {},
+  hideModal() {}
 };
 
 const Context = createContext(initState);
@@ -25,22 +25,22 @@ class Provider extends React.PureComponent<Props, State> {
     this.root = document.getElementById(props.portalTo ?? 'root')!;
   }
 
-  onShowModal: OnShowModal = (component) => {
+  showModal: OnShowModal = (component) => {
     document.body.style.overflowY = 'hidden';
     this.setState((prev) => ({...prev, component}));
   };
-  onHideModal: OnHideModal = () => {
+  hideModal: OnHideModal = () => {
     document.body.style.overflowY = 'auto';
     this.setState((prev) => ({...prev, component: null}));
   };
 
   render(): React.ReactNode {
-    const {root, onShowModal, onHideModal} = this;
+    const {root, showModal, hideModal} = this;
     const {children} = this.props;
     const {component} = this.state;
 
     const renderTemplate = (
-      <Transparent root={root} onClose={onHideModal} visible={!!component}>
+      <Transparent root={root} onClose={hideModal} visible={!!component}>
         {component}
       </Transparent>
     );
@@ -48,7 +48,7 @@ class Provider extends React.PureComponent<Props, State> {
     const renderPortal = ReactDOM.createPortal(renderTemplate, root);
 
     return (
-      <Context.Provider value={{onShowModal, onHideModal}}>
+      <Context.Provider value={{showModal, hideModal}}>
         {renderPortal}
         {children}
       </Context.Provider>

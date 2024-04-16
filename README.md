@@ -1,6 +1,6 @@
 ## VIN-REACT (DOCUMENTATION OUTDATED)
 
-is React library that focus the simplest way to use component and utilize the powerful of Flexbox, Cutomizable and Simplicity
+is React library that focus the simplest way to use component and utilize the powerful of Flexbox, Cutomizable and Simplicity.
 
 #
 
@@ -22,7 +22,7 @@ npm install vin-react
 
 ### Features
 
-##### Components
+#### Components
 
 - Button
 - Counter
@@ -34,21 +34,23 @@ npm install vin-react
 - Text
 - View
 
-##### Floating Components
+#### Floating Components
 
-- Modal
+- [Modal](#Modal)
 - Toast
 
-##### HOC
+#### Higher Order Component (HOC)
 
-- connectStyle
+- [connectStyle](#connectStyle)
 
 #
 
 ### Examples
 
+### `Model`
+
 ```JSX
-//index.js
+//index.tsx
 import {createRoot} from 'react-dom/client';
 import {Modal} from 'vin-react';
 
@@ -61,26 +63,54 @@ container.render(
   </Modal.Provider>
 )
 
-//App.js
-const {onShowModal, onHideModal} = useConext(Modal.Context)
-...
+//App.tsx
+const {showModal, hideModal} = useConext(Modal.Context);
 const handleShowModal = () => {
-  onShowModal(
+  showModal(
     <div>
       <p>HI THIS IS MODAL</p>
     </div>
   )
 }
 const handleHideModal = () => {
-  onHideModal()
+  hideModal()
 }
+```
+
+### `connectStyle`
+
+```JSX
+// MyButton.tsx
+import {ConnectStyleProps, connectStyle} from 'vin-react';
+import styles from './styles.scss';
+
+type Props = {
+  children: any;
+} & ConnectStyleProps;
+
+const MyButton: React.FC<Props> = ({children, classNames = () => ''}) => {
+  const btnStyle = classNames(
+    'green',
+    {red: undefined}, // display the red by default 
+    {red: false}, // will not display red if value false
+    ['yellow']
+  );
+
+  return (
+    <button className={btnStyle}>
+      <p>{children}</p>
+    </button>
+  );
+};
+export default connectStyle(styles)(MyButton);
+
 ```
 
 #
 
 ### Contributing
 
-Unfortunately we are not accepting any contributors yet this is under probitionary, but for your concerns and possible suggestions just email me at petatemarvin26@gmail.com
+Unfortunately we are not accepting any contributors yet this is under probitionary, but for your concerns and possible suggestions you may raise the issue on our github
 
 #
 
@@ -96,7 +126,6 @@ We're using github [release][github-release] and based on [semantic versioning][
 
 [ws]: https://www.npmjs.com/package/ws
 [nodejs]: https://nodejs.org/en
-[github-release]: https://github.com/petatemarvin26/vin-socket.server/releases
+[github-release]: https://github.com/petatemarvin26/vin-react/releases
 [license]: ./LICENSE
 [semantic-version]: https://semver.org/
-[peer-lib]: https://www.npmjs.com/package/vin-socket.client

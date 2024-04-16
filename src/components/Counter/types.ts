@@ -1,4 +1,4 @@
-import {ClassNames} from 'hoc/connectStyle/types';
+import {ConnectStyleProps} from 'hoc/connectStyle/types';
 
 type Props = {
   className?: string;
@@ -9,7 +9,6 @@ type Props = {
   max?: number;
   value?: number;
   onChange?: (next: number) => void;
-  classNames?: ClassNames;
-};
+} & ConnectStyleProps;
 
 export type {Props};
