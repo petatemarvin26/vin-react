@@ -2,17 +2,22 @@ type StylesheetModule = {
   [classname: string]: any;
 };
 
-/**
- * ClassNames utility function for Modular Stylesheet
- */
 type ClassNames = {
-  (classes: Array<any>): string | undefined;
+  (...classnames: Array<any>): string | undefined;
+};
+
+type ConnectStyleProps = {
+  /**
+   * utility function for Modular Stylesheet
+   * - disregard falsy value passed in classes argument
+   */
+  classNames?: ClassNames;
 };
 
 type ConnectStyle = {
-  (style: StylesheetModule): <P extends {classNames?: ClassNames}>(
+  (style: StylesheetModule): <P extends ConnectStyleProps>(
     Component: React.ComponentType<P>
   ) => React.ComponentType<P>;
 };
 
-export type {ClassNames, ConnectStyle};
+export type {ConnectStyleProps, ClassNames, ConnectStyle};

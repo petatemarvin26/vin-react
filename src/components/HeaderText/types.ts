@@ -1,12 +1,11 @@
-import {ClassNames} from 'hoc/connectStyle/types';
+import {ConnectStyleProps} from 'hoc/connectStyle/types';
 import {CSSProperties} from 'react';
 
 type Props = {
   className?: string;
   style?: CSSProperties;
   children?: any;
-  classNames?: ClassNames;
-};
+} & ConnectStyleProps
 
 type States = {};
 

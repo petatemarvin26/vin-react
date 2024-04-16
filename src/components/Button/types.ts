@@ -1,5 +1,5 @@
 import {CSSProperties, MouseEventHandler} from 'react';
-import {ClassNames} from 'hoc/connectStyle/types';
+import {ConnectStyleProps} from 'hoc/connectStyle/types';
 
 type Props = {
   style?: CSSProperties;
@@ -7,8 +7,7 @@ type Props = {
   children?: any;
   title?: string;
   onClick?: MouseEventHandler<HTMLButtonElement>;
-  classNames?: ClassNames;
-};
+} & ConnectStyleProps;
 
 type States = {};
 

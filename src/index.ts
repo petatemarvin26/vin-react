@@ -18,6 +18,7 @@ import {
   toPascalCase
 } from './utils';
 import {connectStyle} from './hoc';
+import {ConnectStyleProps} from './hoc/connectStyle/types';
 
 export {
   // dom components
@@ -41,3 +42,5 @@ export {
   toNameCase,
   toPascalCase
 };
+
+export type {ConnectStyleProps};
