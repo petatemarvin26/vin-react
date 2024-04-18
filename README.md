@@ -47,7 +47,7 @@ npm install --save vin-react
 
 ### Examples
 
-### `Button`
+#### `Button`
 
 ```TSX
 import {Button} from 'vin-react'
@@ -62,7 +62,7 @@ const App: React.FC = () => {
 }
 ```
 
-### `Modal`
+#### `Modal`
 
 ```JSX
 // index.tsx
@@ -92,7 +92,7 @@ const handleHideModal = () => {
 }
 ```
 
-### `connectStyle`
+#### `connectStyle`
 
 ```JSX
 // MyButton.tsx
