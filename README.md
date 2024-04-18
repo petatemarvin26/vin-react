@@ -6,9 +6,9 @@ is React library that focus the simplest way to use component and utilize the po
 
 ### Table Contents
 
-- [Installation](###Installation)
-- [Features](###Features)
-- [Examples](###Examples)
+- [Installation](#Installation)
+- [Features](#Features)
+- [Examples](#Examples)
 
 #
 
@@ -24,7 +24,7 @@ npm install --save vin-react
 
 #### Components
 
-- [Button](###Button)
+- [Button](#Button)
 - Counter
 - HeaderText
 - Image
@@ -36,12 +36,12 @@ npm install --save vin-react
 
 #### Floating Components
 
-- [Modal](###Modal)
+- [Modal](#Modal)
 - Toast
 
 #### Higher Order Component (HOC)
 
-- [connectStyle](###connectStyle)
+- [connectStyle](#connectStyle)
 
 #
 
