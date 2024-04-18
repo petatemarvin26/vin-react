@@ -6,25 +6,25 @@ is React library that focus the simplest way to use component and utilize the po
 
 ### Table Contents
 
-- [Installation](#Installation)
-- [Features](#Features)
-- [Examples](#Examples)
+- [Installation](###Installation)
+- [Features](###Features)
+- [Examples](###Examples)
 
 #
 
 ### Installation
 
 ```shell
-npm install vin-react
+npm install --save vin-react
 ```
 
 #
 
-### Features
+### API
 
 #### Components
 
-- Button
+- [Button](###Button)
 - Counter
 - HeaderText
 - Image
@@ -36,21 +36,36 @@ npm install vin-react
 
 #### Floating Components
 
-- [Modal](#Modal)
+- [Modal](###Modal)
 - Toast
 
 #### Higher Order Component (HOC)
 
-- [connectStyle](#connectStyle)
+- [connectStyle](###connectStyle)
 
 #
 
 ### Examples
 
-### `Model`
+### `Button`
+
+```TSX
+import {Button} from 'vin-react'
+
+const App: React.FC = () => {
+  return (
+    <div>
+      <Button onClick={() => console.log('HELLO WORLD')}>Click Me</Button>
+      <Button title="Click Me" onClick={() => console.log('HELLO WORLD')}/>
+    </div>
+  )
+}
+```
+
+### `Modal`
 
 ```JSX
-//index.tsx
+// index.tsx
 import {createRoot} from 'react-dom/client';
 import {Modal} from 'vin-react';
 
@@ -63,12 +78,12 @@ container.render(
   </Modal.Provider>
 )
 
-//App.tsx
+// App.tsx
 const {showModal, hideModal} = useConext(Modal.Context);
 const handleShowModal = () => {
   showModal(
     <div>
-      <p>HI THIS IS MODAL</p>
+      <p>HI, THIS IS MODAL</p>
     </div>
   )
 }
@@ -91,7 +106,7 @@ type Props = {
 const MyButton: React.FC<Props> = ({children, classNames = () => ''}) => {
   const btnStyle = classNames(
     'green',
-    {red: undefined}, // display the red by default 
+    {red: undefined}, // display the red by default
     {red: false}, // will not display red if value false
     ['yellow']
   );
