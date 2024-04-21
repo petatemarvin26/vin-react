@@ -1,14 +1,22 @@
-.bar {
-  display: flex;
-  width: 200px;
-  height: 10px;
-  align-items: flex-start;
-  overflow: hidden;
-  background-color: rgb(209, 209, 209);
+.vr-bar-indicator {
+  border-radius: var(--BAR-ROUND);
 }
 
-.bar .thumb {
-  display: flex;
-  height: 100%;
-  background-color: rgb(236, 236, 236);
+.vr-bar-indicator .vr-bar-indicator-anc {
+  transform: width 1s ease-in-out;
+}
+
+.moving {
+  animation: linear infinite;
+  animation-duration: var(--BAR-ANCHOR-SPEED);
+  animation-name: moving-animation;
+}
+
+@keyframes moving-animation {
+  0% {
+    x: calc(var(--BAR-ANCHOR-WIDTH) * -1.25);
+  }
+  100% {
+    x: calc(var(--BAR-ANCHOR-WIDTH) + var(--BAR-ANCHOR-WIDTH) * 0.25);
+  }
 }

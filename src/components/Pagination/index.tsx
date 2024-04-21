@@ -1,91 +1,77 @@
 import React from 'react';
+import connectStyle from 'hoc/connectStyle';
 
 import PageNum from './PageNum';
 import {HandleClickPage, Props, State} from './types';
 import styles from './.module.css';
 
 class Pagination extends React.PureComponent<Props, State> {
+  ref: HTMLDivElement | null = null;
+  MAX_PAGE_DISPLAY = 5;
+
   constructor(props: Props) {
     super(props);
     this.state = {
-      pages: []
+      pages: [],
+      currentPage: 1
     };
   }
 
   componentDidMount(): void {
-    const pages = this.renderPages(1);
-    this.setState((prev) => ({...prev, pages}));
+    const {currentPage = 1} = this.props;
+    let startpage = currentPage > 1 ? currentPage - 1 : currentPage;
+    const pages = this.renderPages(startpage);
+    this.setState((prev) => ({...prev, pages, currentPage}));
   }
-
-  componentDidUpdate(prevProps: Readonly<Props>): void {
-    const {totalItems} = this.props;
-    if (prevProps.totalItems !== totalItems) {
-      const pages = this.renderPages(1);
-      this.setState((prev) => ({...prev, pages}));
-    }
-  }
-
-  handleClickPage: HandleClickPage = (key) => (page) => {
-    const {renderPages} = this;
-    const {maxPagesDisplay, totalItems, maxItemsDisplay, onPageChange} =
-      this.props;
-    const {pages} = this.state;
-
-    onPageChange && onPageChange(page);
-
-    const TOTAL_PAGES = Math.floor(totalItems / maxItemsDisplay);
-    const SIDE_LENGTH = Math.floor(maxPagesDisplay / 2);
-    const HEAD = pages[0];
-    const LEAP = pages[maxPagesDisplay - 1];
-    let nextPages = pages;
-
-    if (maxPagesDisplay % 2 !== 0 && SIDE_LENGTH + 1 === key) return;
-
-    if (key <= SIDE_LENGTH && HEAD > 0) {
-      const OFFSET = SIDE_LENGTH - key + 1;
-      const NEXT_PAGE = OFFSET - HEAD;
-      const START_PAGE = Math.abs(NEXT_PAGE ? NEXT_PAGE : 1);
-      nextPages = renderPages(START_PAGE);
-    }
-    if (key > SIDE_LENGTH && LEAP < TOTAL_PAGES) {
-      const OFFSET = key - SIDE_LENGTH - 1;
-      const NEXT_LEAP_PAGE = OFFSET + LEAP;
-      const FINAL_LEAP_PAGE =
-        NEXT_LEAP_PAGE > TOTAL_PAGES ? NEXT_LEAP_PAGE - 1 : NEXT_LEAP_PAGE;
-      const START_PAGE = FINAL_LEAP_PAGE - (maxPagesDisplay - 1);
-      nextPages = renderPages(START_PAGE);
-    }
-
-    this.setState((prev) => ({...prev, pages: nextPages}));
-  };
 
   renderPages = (start: number) => {
-    const {maxPagesDisplay, maxItemsDisplay, totalItems} = this.props;
-    const TOTAL_PAGES = Math.ceil(totalItems / maxItemsDisplay);
-    const length =
-      TOTAL_PAGES > maxPagesDisplay ? maxPagesDisplay : TOTAL_PAGES;
+    const {totalData, maxPageDisplay = this.MAX_PAGE_DISPLAY} = this.props;
+    const length = totalData < maxPageDisplay ? totalData : maxPageDisplay;
     return Array.from({length}, (_, i) => start + i);
+  };
+
+  handleClickPage: HandleClickPage = (key) => (page, e) => {
+    const {totalData, onPageChange = () => {}} = this.props;
+    const pages_len = this.state.pages.length,
+      half = pages_len / 2,
+      mid_num = Math.ceil(half),
+      is_left = half % 2 === 0 ? key <= mid_num : key < mid_num,
+      is_right = key > mid_num;
+
+    let pages = this.state.pages;
+    if (is_left && !is_right && pages[0] > 1) {
+      pages = pages.map((val) => val - 1);
+    }
+    if (!is_left && is_right && pages[pages_len - 1] < totalData) {
+      pages = pages.map((val) => val + 1);
+    }
+    this.setState((prev) => ({...prev, pages, currentPage: page}));
+    onPageChange(page, e);
   };
 
   render(): React.ReactNode {
     const {handleClickPage} = this;
-    const {className, pageClassName, currentPage} = this.props;
+    const {className, classNamePageNum, classNames = () => ''} = this.props;
     const {pages} = this.state;
 
-    let _className = styles['main-pane'];
-    if (className) _className += ` ${className}`;
+    const pageNumStyle = classNames(['vr-pagination', className]);
+    const renderPageNum = pages.map((page, key) => {
+      return (
+        <PageNum
+          key={key}
+          className={classNamePageNum}
+          number={page}
+          isSelected={this.state.currentPage === page}
+          onClick={handleClickPage(key + 1)}
+        />
+      );
+    });
 
-    const renderPageNum = pages.map((page, key) => (
-      <PageNum
-        className={pageClassName}
-        key={page}
-        number={page}
-        isSelected={currentPage === page}
-        onClick={handleClickPage(key + 1)}
-      />
-    ));
-
-    return <div className={_className}>{renderPageNum}</div>;
+    return (
+      <div ref={(ref) => (this.ref = ref)} className={pageNumStyle}>
+        {renderPageNum}
+      </div>
+    );
   }
 }
-export default Pagination;
+export default connectStyle(styles)(Pagination);

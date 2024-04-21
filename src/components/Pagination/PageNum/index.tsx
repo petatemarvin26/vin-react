@@ -1,28 +1,29 @@
 import React from 'react';
+import connectStyle from 'hoc/connectStyle';
 
 import {Props} from './types';
 import styles from './.module.css';
 
 class PageNum extends React.PureComponent<Props> {
-  handleClick = () => {
-    const {number = 0, onClick} = this.props;
-    onClick && onClick(number);
+  handleClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {
+    const {number = 0, onClick = () => {}} = this.props;
+    onClick(number, e);
   };
 
   render(): React.ReactNode {
     const {handleClick} = this;
-    const {className, number, isSelected} = this.props;
+    const {className, number, isSelected, classNames = () => ''} = this.props;
 
-    let _className = styles['main-pane'];
-    if (className) _className += ` ${className}`;
-    if (isSelected) _className += ` ${styles['selected']}`;
+    const pageNumStyle = classNames(['vr-page-num', className], {
+      'vr-page-num-sel': isSelected
+    });
 
     return (
-      <button className={_className} onClick={handleClick}>
+      <button className={pageNumStyle} onClick={handleClick}>
         {number}
       </button>
     );
   }
 }
 
-export default PageNum;
+export default connectStyle(styles)(PageNum);

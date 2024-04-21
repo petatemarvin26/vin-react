@@ -16,6 +16,7 @@ const connectStyle: ConnectStyle = (styles) => {
           const _style = styles[_name];
           // check if the name is exist in the style
           if (_style) _cnames += ` ${_style}`;
+          else _cnames += ` ${_name}`;
         }
       }
       // this block is conditional approach in the object keyval
@@ -28,17 +29,15 @@ const connectStyle: ConnectStyle = (styles) => {
            */
           if (typeof val === 'boolean' && val) {
             _cnames += ` ${isStyle(styles[key])}`;
-          } 
+          } else if (typeof val === 'string' && val) {
           /**
            * if the value is typeof string and has truthy value, it will get the style using the value
            */
-          else if (typeof val === 'string' && val) {
             _cnames += ` ${isStyle(styles[val])}`;
-          }
+          } else if (typeof val === 'undefined') {
           /**
            * this mean the value is a style and if the value is undefined by default will get the style using the key
            */
-          else if (typeof val === 'undefined') {
             _cnames += ` ${isStyle(styles[key])}`;
           }
         }

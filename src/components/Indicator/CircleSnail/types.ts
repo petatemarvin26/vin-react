@@ -1,22 +1,31 @@
 import {CSSProperties} from 'react';
 
-type AnchorStyle = 'inherit' | 'butt' | 'round' | 'square' | undefined;
+import {ConnectStyleProps} from 'hoc/connectStyle/types';
 
-interface Props {
-  style?: CSSProperties;
-  anchorStyle?: AnchorStyle;
+type Props = {
+  size: number;
+  thickness: number;
+  className?: string;
+  classNameBg?: string;
+  classNameAnc?: string;
+  /**
+   * Default is `square`
+   * @default `square`
+   */
+  cornerStyle?: 'round' | 'square';
+  /**
+   * Percentage of circle
+   */
   progress?: number;
+  animating?: boolean;
   color?: string;
-  size?: any;
-  thickness?: string;
-  type?: string;
-}
-interface State {
-  PI: number;
-  SIZE: string;
-  RADIUS: string;
-  POS: string;
-  CIRCUMFERENCE: string;
-}
+  /**
+   * Speed per second
+   * @default `1s`
+   */
+  speed?: number;
+} & ConnectStyleProps;
 
-export type {AnchorStyle, Props, State};
+type State = {};
+
+export type {Props, State};
