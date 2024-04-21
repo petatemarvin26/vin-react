@@ -14,7 +14,7 @@ is React library that focus the simplest way to use component and utilize the po
 npm install --save vin-react
 ```
 
-## API
+## Features
 
 #### Components
 
