@@ -214,4 +214,4 @@ We're using github [release][github-release] and based on [semantic versioning][
 [github-release]: https://github.com/petatemarvin26/vin-react/releases
 [license]: ./LICENSE
 [semantic-version]: https://semver.org/
-[marvin-petate]: https://marvin-petate.web.appp
+[marvin-petate]: https://marvin-petate.web.app
