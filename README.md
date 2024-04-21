@@ -1,38 +1,32 @@
-## VIN-REACT (DOCUMENTATION OUTDATED)
+## VIN-REACT
 
 is React library that focus the simplest way to use component and utilize the powerful of Flexbox, Cutomizable and Simplicity.
 
-#
-
-### Table Contents
+## Table Contents
 
 - [Installation](#Installation)
 - [Features](#Features)
 - [Examples](#Examples)
 
-#
-
-### Installation
+## Installation
 
 ```shell
 npm install --save vin-react
 ```
 
-#
-
-### API
+## API
 
 #### Components
 
 - [Button](#Button)
-- Counter
+- [Counter](#Counter)
 - HeaderText
 - Image
-- Indicator
+- [Indicator](#indicator)
 - Input
-- Pagination
+- [Pagination](#Pagination)
 - Text
-- View
+- [View](#View)
 
 #### Floating Components
 
@@ -43,26 +37,104 @@ npm install --save vin-react
 
 - [connectStyle](#connectStyle)
 
-#
+## Examples
 
-### Examples
-
-#### `Button`
+##### `Button`
 
 ```TSX
 import {Button} from 'vin-react'
-
+...
 const App: React.FC = () => {
   return (
     <div>
-      <Button onClick={() => console.log('HELLO WORLD')}>Click Me</Button>
-      <Button title="Click Me" onClick={() => console.log('HELLO WORLD')}/>
+      <Button onClick={() => console.log('CLICK')}>Click Me</Button>
+      <Button title="Click Me" onClick={() => console.log('CLICK')}/>
     </div>
   )
 }
 ```
 
-#### `Modal`
+##### `Counter`
+
+```TSX
+import {Counter} from 'vin-react'
+...
+const App: React.FC = () => {
+  return (
+    <div>
+      <Counter
+        max={10}
+        onChange={nextNum => console.log(nextNum)}
+      />
+    </div>
+  )
+}
+```
+
+##### `Indicator`
+
+```TSX
+import {Indicator} from 'vin-react'
+...
+const App: React.FC = () => {
+  return (
+    <div>
+      <Indicator.Bar
+        width={250}
+        height={10}
+        animating={true}
+        cornerStyle='round'
+      />
+      <Indicator.Bar width={250} height={10} progress={0.5} />
+      <Indicator.CircleSnail
+        size={100}
+        thickness={10}
+        cornerStyle='round'
+        animating={true}
+      />
+      <Indicator.CircleSnail size={100} thickness={10} progress={0.5} />
+    </div>
+  )
+}
+```
+
+##### `View`
+
+```TSX
+import {View} from 'vin-react'
+...
+const App: React.FC = () => {
+  const myview = useRef<HTMLDivElement>();
+  return (
+    <View reference={ref => (myview.current = ref)}>
+      <button>CLICK ME!</button>
+    </View>
+  )
+}
+```
+
+##### `Pagination`
+
+```TSX
+import {Pagination} from 'vin-react'
+...
+const App: React.FC = () => {
+  return (
+    <div>
+      <Pagination
+        maxPageDisplay={5}
+        totalData={15}
+        currentPage={2}
+        onPageChange={(page, e) => {
+          console.log(page, e);
+        }}
+      />
+    </div>
+  );
+};
+```
+
+##### `Modal`
 
 ```JSX
 // index.tsx
@@ -92,7 +164,7 @@ const handleHideModal = () => {
 }
 ```
 
-#### `connectStyle`
+##### `connectStyle`
 
 ```JSX
 // MyButton.tsx
@@ -121,21 +193,19 @@ export default connectStyle(styles)(MyButton);
 
 ```
 
-#
-
-### Contributing
+## Contributing
 
 Unfortunately we are not accepting any contributors yet this is under probitionary, but for your concerns and possible suggestions you may raise the issue on our github
 
-#
-
-### Changelog
+## Changelog
 
 We're using github [release][github-release] and based on [semantic versioning][semantic-version]
 
-#
+## Author
 
-### License
+[Marvin Petate][marvin-petate]
+
+## License
 
 [ISC][license]
 
@@ -144,3 +214,4 @@ We're using github [release][github-release] and based on [semantic versioning][
 [github-release]: https://github.com/petatemarvin26/vin-react/releases
 [license]: ./LICENSE
 [semantic-version]: https://semver.org/
+[marvin-petate]: https://marvin-petate.web.appp

@@ -1,4 +1,4 @@
-.main-pane {
+.vr-page-num {
   display: flex;
   width: 2.5em;
   height: 2.45em;
@@ -9,13 +9,13 @@
   background-color: transparent;
 }
 
-.main-pane:active {
+.vr-page-num:active {
   opacity: 0.8;
 }
-.main-pane:hover {
+.vr-page-num:hover {
   cursor: pointer;
 }
 
-.selected {
+.vr-page-num-sel {
   border: solid 0.5px rgba(0, 0, 0, 0.8);
 }

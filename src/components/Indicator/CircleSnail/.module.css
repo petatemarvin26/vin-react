@@ -1,24 +1,15 @@
-.animating {
-  animation: linear 0.75s infinite;
-  animation-name: rotate-animation;
-}
-
-.circleSnail {
+.vr-circle-indicator {
   transform: rotate(-90deg);
 }
 
-.red {
-  animation: ease-in-out 1.5s infinite alternate;
-  animation-name: dash-offset;
+.vr-circle-indicator .vr-circle-indicator-anc {
+  transition: stroke-dashoffset 1s ease-in-out;
 }
 
-@keyframes dash-offset {
-  0% {
-    stroke-dashoffset: 0;
-  }
-  100% {
-    stroke-dashoffset: var(--CIRCLE-SNAIL-ANCHOR-WIDTH);
-  }
+.rotating {
+  animation: linear infinite;
+  animation-name: rotate-animation;
+  animation-duration: var(--CIRCLE-ANCHOR-SPEED);
 }
 
 @keyframes rotate-animation {
@@ -27,5 +18,20 @@
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+.effects {
+  animation: infinite alternate;
+  animation-name: effects-animation;
+  animation-duration: var(--CIRCLE-ANCHOR-SPEED);
+}
+
+@keyframes effects-animation {
+  0% {
+    stroke-dashoffset: calc(var(--CIRCLE-ANCHOR-WIDTH) * 2);
+  }
+  100% {
+    stroke-dashoffset: var(--CIRCLE-ANCHOR-WIDTH);
   }
 }
