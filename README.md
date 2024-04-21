@@ -82,15 +82,15 @@ const App: React.FC = () => {
       <Indicator.Bar
         width={250}
         height={10}
-        animating={true}
         cornerStyle='round'
+        animating
       />
       <Indicator.Bar width={250} height={10} progress={0.5} />
       <Indicator.CircleSnail
         size={100}
         thickness={10}
         cornerStyle='round'
-        animating={true}
+        animating
       />
       <Indicator.CircleSnail size={100} thickness={10} progress={0.5} />
     </div>
