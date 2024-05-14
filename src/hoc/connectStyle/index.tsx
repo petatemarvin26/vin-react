@@ -30,18 +30,31 @@ const connectStyle: ConnectStyle = (styles) => {
           if (typeof val === 'boolean' && val) {
             _cnames += ` ${isStyle(styles[key])}`;
           } else if (typeof val === 'string' && val) {
-          /**
-           * if the value is typeof string and has truthy value, it will get the style using the value
-           */
+            /**
+             * if the value is typeof string and has truthy value, it will get the style using the value
+             */
             _cnames += ` ${isStyle(styles[val])}`;
           } else if (typeof val === 'undefined') {
-          /**
-           * this mean the value is a style and if the value is undefined by default will get the style using the key
-           */
+            /**
+             * this mean the value is a style and if the value is undefined by default will get the style using the key
+             */
             _cnames += ` ${isStyle(styles[key])}`;
           }
         }
-      } else _cnames += ` ${isStyle(styles[arg])}`;
+      }
+      // inline classNames
+      else {
+        // if the className is exist in style
+        if (styles[arg]) {
+          _cnames += ` ${isStyle(styles[arg])}`;
+          continue;
+        }
+        // if the className has its own stylesheet
+        if (arg) {
+          _cnames += ` ${isStyle(arg)}`;
+          continue;
+        }
+      }
     }
     return _cnames.trim();
   };

@@ -3,7 +3,7 @@ type StylesheetModule = {
 };
 
 type ClassNames = {
-  (...classnames: Array<any>): string | undefined;
+  (...classnames: Array<any>): string;
 };
 
 type ConnectStyleProps = {
