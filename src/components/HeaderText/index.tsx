@@ -1,11 +1,11 @@
-import React from 'react';
-import connectStyle from 'hoc/connectStyle';
+import {PureComponent, ReactNode} from 'react';
+import {connectStyle} from '@/hoc';
 
 import {Props, States} from './types';
 import styles from './.module.css';
 
-class HeaderText extends React.PureComponent<Props, States> {
-  render(): React.ReactNode {
+class HeaderText extends PureComponent<Props, States> {
+  render(): ReactNode {
     const {children, className, style, classNames = () => ''} = this.props;
 
     const headerTextStyle = classNames(['header-text', className]);

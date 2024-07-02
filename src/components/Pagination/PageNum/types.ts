@@ -1,15 +1,13 @@
-import {ConnectStyleProps} from 'hoc/connectStyle/types';
+import {MouseEventHandler, MouseEvent} from 'react';
+import {ConnectStyleProps} from '@/hoc/types';
 
-type OnClick = {};
+type OnClick = MouseEventHandler<HTMLButtonElement>;
 
 type Props = {
   className?: string;
   number?: number;
   isSelected?: boolean;
-  onClick?: (
-    num: number,
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => void;
+  onClick?: (num: number, e: MouseEvent<HTMLButtonElement>) => void;
 } & ConnectStyleProps;
 
-export type {Props};
+export type {Props, OnClick};

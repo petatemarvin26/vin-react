@@ -1,5 +1,7 @@
-import {ConnectStyleProps} from 'hoc/connectStyle/types';
 import {CSSProperties, MouseEventHandler, UIEventHandler} from 'react';
+
+import {ConnectStyleProps} from '@/hoc/types';
+
 type Props = {
   id?: any;
   style?: CSSProperties;

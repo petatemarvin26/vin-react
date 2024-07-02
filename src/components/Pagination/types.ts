@@ -1,10 +1,10 @@
-import React from 'react';
-import {ConnectStyleProps} from 'hoc/connectStyle/types';
+import {MouseEvent} from 'react';
+import {ConnectStyleProps} from '@/hoc/types';
 
 type HandleClickPage = {
   (key: number): (
     page: number,
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+    e: MouseEvent<HTMLButtonElement>
   ) => void;
 };
 
@@ -33,7 +33,7 @@ type Props = {
   currentPage?: number;
   onPageChange?: (
     page: number,
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+    event: MouseEvent<HTMLButtonElement>
   ) => void;
 } & ConnectStyleProps;
 

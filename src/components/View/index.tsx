@@ -1,11 +1,11 @@
-import React from 'react';
-import {connectStyle} from 'hoc';
+import {PureComponent, ReactNode} from 'react';
+import {connectStyle} from '@/hoc';
 
 import {Props, States} from './types';
 import styles from './.module.css';
 
-class View extends React.PureComponent<Props, States> {
-  render(): React.ReactNode {
+class View extends PureComponent<Props, States> {
+  render(): ReactNode {
     const {
       className,
       children,

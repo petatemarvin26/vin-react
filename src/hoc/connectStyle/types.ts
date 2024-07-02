@@ -1,3 +1,5 @@
+import {ComponentType} from 'react';
+
 type StylesheetModule = {
   [classname: string]: any;
 };
@@ -16,8 +18,8 @@ type ConnectStyleProps = {
 
 type ConnectStyle = {
   (style: StylesheetModule): <P extends ConnectStyleProps>(
-    Component: React.ComponentType<P>
-  ) => React.ComponentType<P>;
+    Component: ComponentType<P>
+  ) => ComponentType<P>;
 };
 
 export type {ConnectStyleProps, ClassNames, ConnectStyle};

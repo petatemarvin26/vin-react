@@ -1,6 +1,4 @@
-import {CSSProperties} from 'react';
-
-import {ConnectStyleProps} from 'hoc/connectStyle/types';
+import {ConnectStyleProps} from '@/hoc/types';
 
 type Props = {
   size: number;

@@ -1,11 +1,11 @@
-import React from 'react';
-import connectStyle from 'hoc/connectStyle';
+import {PureComponent, ReactNode} from 'react';
+import {connectStyle} from '@/hoc';
 
 import PageNum from './PageNum';
 import {HandleClickPage, Props, State} from './types';
 import styles from './.module.css';
 
-class Pagination extends React.PureComponent<Props, State> {
+class Pagination extends PureComponent<Props, State> {
   ref: HTMLDivElement | null = null;
   MAX_PAGE_DISPLAY = 5;
 
@@ -49,7 +49,7 @@ class Pagination extends React.PureComponent<Props, State> {
     onPageChange(page, e);
   };
 
-  render(): React.ReactNode {
+  render(): ReactNode {
     const {handleClickPage} = this;
     const {className, classNamePageNum, classNames = () => ''} = this.props;
     const {pages} = this.state;

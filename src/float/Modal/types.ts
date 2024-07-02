@@ -1,3 +1,5 @@
+import {Context, ComponentClass} from 'react';
+
 type OnShowModal = {
   (component: JSX.Element): void;
 };
@@ -24,8 +26,8 @@ type Props = {
 };
 
 type ModalType = {
-  Context: React.Context<Value>;
-  Provider: React.ComponentClass<Props>;
+  Context: Context<Value>;
+  Provider: ComponentClass<Props>;
 };
 
 export type {OnShowModal, OnHideModal, Value, State, Props, ModalType};

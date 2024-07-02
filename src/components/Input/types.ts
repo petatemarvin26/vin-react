@@ -1,14 +1,14 @@
-import {CSSProperties} from 'react';
+import {CSSProperties, ReactNode, ChangeEvent} from 'react';
 
 type Props = {
   className?: string;
   style?: CSSProperties;
   placeholder?: string;
   value?: string;
-  prefixComponent?: React.ReactNode;
+  prefixComponent?: ReactNode;
   onChangeText?: (
     value: string,
-    event: React.ChangeEvent<HTMLInputElement>
+    event: ChangeEvent<HTMLInputElement>
   ) => void;
 };
 

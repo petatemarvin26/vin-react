@@ -1,8 +1,8 @@
-import React from 'react';
+import {PureComponent, ReactNode} from 'react';
 
 import {Props, States} from './types';
 
-class Image extends React.PureComponent<Props, States> {
+class Image extends PureComponent<Props, States> {
   constructor(props: Props) {
     super(props);
 
@@ -40,7 +40,7 @@ class Image extends React.PureComponent<Props, States> {
     request.send();
   };
 
-  render(): React.ReactNode {
+  render(): ReactNode {
     const {src} = this.state;
     const {style, className, draggable, onLoad, onDragStart} = this.props;
 

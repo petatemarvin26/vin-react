@@ -1,4 +1,4 @@
-import React, {ReactNode} from 'react';
+import {PureComponent, ComponentProps, ReactNode} from 'react';
 import {ClassNames, ConnectStyle} from './types';
 
 const connectStyle: ConnectStyle = (styles) => {
@@ -59,8 +59,8 @@ const connectStyle: ConnectStyle = (styles) => {
     return _cnames.trim();
   };
   return (Component) => {
-    type P = React.ComponentProps<typeof Component>;
-    return class extends React.PureComponent<P> {
+    type P = ComponentProps<typeof Component>;
+    return class extends PureComponent<P> {
       render(): ReactNode {
         const props = this.props;
         return <Component {...props} classNames={classNames} />;
