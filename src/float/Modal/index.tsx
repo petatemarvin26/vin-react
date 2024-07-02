@@ -1,4 +1,4 @@
-import React, {createContext} from 'react';
+import  {PureComponent, ReactNode, createContext} from 'react';
 import ReactDOM from 'react-dom';
 import Transparent from './Transparent';
 import {
@@ -17,7 +17,7 @@ const initState: Value = {
 
 const Context = createContext(initState);
 
-class Provider extends React.PureComponent<Props, State> {
+class Provider extends PureComponent<Props, State> {
   root: HTMLElement;
   constructor(props: Props) {
     super(props);
@@ -34,7 +34,7 @@ class Provider extends React.PureComponent<Props, State> {
     this.setState((prev) => ({...prev, component: null}));
   };
 
-  render(): React.ReactNode {
+  render(): ReactNode {
     const {root, showModal, hideModal} = this;
     const {children} = this.props;
     const {component} = this.state;

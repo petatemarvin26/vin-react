@@ -1,8 +1,9 @@
 import {PureComponent, ReactNode} from 'react';
 
+import {connectStyle} from '@/hoc';
+
 import styles from './.module.css';
 import {Props, State} from './types';
-import {connectStyle} from 'hoc';
 
 class CircleSnail extends PureComponent<Props, State> {
   ref: SVGElement | null = null;

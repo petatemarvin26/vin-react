@@ -1,11 +1,11 @@
-import React from 'react';
-import {connectStyle} from 'hoc';
+import {PureComponent, ReactNode} from 'react';
+import {connectStyle} from '@/hoc';
 
 import {Props, States} from './types';
 import styles from './.module.css';
 
-class Button extends React.PureComponent<Props, States> {
-  render(): React.ReactNode {
+class Button extends PureComponent<Props, States> {
+  render(): ReactNode {
     const {
       className,
       style,

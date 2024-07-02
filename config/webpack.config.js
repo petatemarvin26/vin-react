@@ -64,11 +64,14 @@ module.exports = (env) => {
     experiments: {
       outputModule: true
     },
+    externals: {
+      react: 'react',
+      'react-dom': 'react-dom'
+    },
     plugins: [new TsErrorPlugin()],
     resolve: {
-      extensions: ['.ts', '.tsx'],
+      extensions: ['.js', '.jsx', '.ts', '.tsx'],
       plugins: [
-        // This plugin temporarily disabled because cant resolve module in declaration files
         new TsPathPlugin({
           configFile: resolver('tsconfig.json')
         })

@@ -1,4 +1,4 @@
-import {ConnectStyleProps} from 'hoc/connectStyle/types';
+import {ConnectStyleProps} from '@/hoc/types';
 import {CSSProperties} from 'react';
 
 type Props = {

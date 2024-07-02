@@ -1,11 +1,11 @@
-import React, {ReactNode} from 'react';
-import {connectStyle} from 'hoc';
+import {PureComponent, ReactNode} from 'react';
+import {connectStyle} from '@/hoc';
 
 import {Props} from './types';
 import {DownIcon, UpIcon} from './icons';
 import styles from './.module.css';
 
-class Counter extends React.PureComponent<Props> {
+class Counter extends PureComponent<Props> {
   constructor(props: Props) {
     super(props);
   }

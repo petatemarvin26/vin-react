@@ -1,11 +1,11 @@
-import React from 'react';
-import connectStyle from 'hoc/connectStyle';
+import {PureComponent, ReactNode} from 'react';
+import {connectStyle} from '@/hoc';
 
 import {Props, States} from './types';
 import styles from './.module.css';
 
-class Text extends React.PureComponent<Props, States> {
-  render(): React.ReactNode {
+class Text extends PureComponent<Props, States> {
+  render(): ReactNode {
     const {children, className, style, classNames = () => ''} = this.props;
 
     const textStyle = classNames(['vr-text', className]);

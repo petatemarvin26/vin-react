@@ -1,11 +1,11 @@
-import React, {createRef} from 'react';
+import {PureComponent, ReactNode, RefObject, createRef} from 'react';
 
 import {Props} from './types';
 import styles from './.module.css';
 
-class Transparent extends React.PureComponent<Props> {
+class Transparent extends PureComponent<Props> {
   root: HTMLElement;
-  ref: React.RefObject<HTMLDivElement>;
+  ref: RefObject<HTMLDivElement>;
 
   constructor(props: Props) {
     super(props);
@@ -29,7 +29,7 @@ class Transparent extends React.PureComponent<Props> {
     }
   };
 
-  render(): React.ReactNode {
+  render(): ReactNode {
     const {ref} = this;
     const {children, visible} = this.props;
 

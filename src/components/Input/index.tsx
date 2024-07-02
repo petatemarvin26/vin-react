@@ -1,10 +1,10 @@
-import React from 'react';
+import {PureComponent, ReactNode} from 'react';
 
 import {Props, States} from './types';
 import styles from './.module.css';
 
-class Input extends React.PureComponent<Props, States> {
-  render(): React.ReactNode {
+class Input extends PureComponent<Props, States> {
+  render(): ReactNode {
     const {
       className,
       style,
