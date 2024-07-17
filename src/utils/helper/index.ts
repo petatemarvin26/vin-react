@@ -1,11 +1,28 @@
-import {FunctionVal} from './types';
+import {FunctionVal} from '@/utils/types';
 
+/**
+ * Convert number into desired format
+ */
+const toFloat = (value: number, options?: Intl.NumberFormatOptions) => {
+  const num = Intl.NumberFormat('en-US', {
+    maximumFractionDigits: 2,
+    ...options
+  });
+  return parseFloat(num.format(value));
+};
+
+/**
+ * Convert word into pascal case
+ */
 const toPascalCase: FunctionVal<string> = (value) => {
   const initial = value.substring(0, 1).toUpperCase();
   const rest = value.substring(1).toLowerCase();
   return `${initial}${rest}`;
 };
 
+/**
+ * Convert all words into pascal case
+ */
 const toNameCase: FunctionVal<string> = (value) => {
   const names = value.split(' ');
   let pascal_name = '';
@@ -18,6 +35,9 @@ const toNameCase: FunctionVal<string> = (value) => {
   return pascal_name;
 };
 
+/**
+ * This function return flat object
+ */
 const toFlat: FunctionVal<object> = (obj) => {
   const keys = Object.keys(obj);
   const vals = Object.values(obj);
@@ -38,4 +58,4 @@ const toFlat: FunctionVal<object> = (obj) => {
   return flat_obj;
 };
 
-export {toNameCase, toPascalCase};
+export {toFloat, toFlat, toNameCase, toPascalCase};
