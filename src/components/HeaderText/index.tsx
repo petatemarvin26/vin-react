@@ -6,12 +6,18 @@ import styles from './.module.css';
 
 class HeaderText extends PureComponent<Props, States> {
   render(): ReactNode {
-    const {children, className, style, classNames = () => ''} = this.props;
+    const {
+      children,
+      className,
+      style,
+      classNames = () => '',
+      ...rest
+    } = this.props;
 
     const headerTextStyle = classNames(['header-text', className]);
 
     return (
-      <h1 className={headerTextStyle} style={style}>
+      <h1 {...rest} className={headerTextStyle} style={style}>
         {children}
       </h1>
     );

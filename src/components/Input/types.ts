@@ -6,10 +6,9 @@ type Props = {
   placeholder?: string;
   value?: string;
   prefixComponent?: ReactNode;
-  onChangeText?: (
-    value: string,
-    event: ChangeEvent<HTMLInputElement>
-  ) => void;
+  ref?: React.LegacyRef<HTMLDivElement>;
+  inputRef?: (ref: HTMLInputElement | null) => any;
+  onChangeText?: (value: string, event: ChangeEvent<HTMLInputElement>) => void;
 };
 
 type States = {};

@@ -11,18 +11,21 @@ class Input extends PureComponent<Props, States> {
       placeholder,
       value,
       prefixComponent,
-      onChangeText = () => {}
+      onChangeText = () => {},
+      inputRef = () => {},
+      ...rest
     } = this.props;
 
     let _className = styles['main-pane'];
     if (className) _className += ` ${className}`;
 
     return (
-      <div className={_className}>
+      <div {...rest} className={_className}>
         {prefixComponent && (
           <div className={styles['prefix-pane']}>{prefixComponent}</div>
         )}
         <input
+          ref={(ref) => inputRef(ref)}
           className={styles['input']}
           style={style}
           placeholder={placeholder}
