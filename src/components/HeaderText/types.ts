@@ -5,7 +5,7 @@ type Props = {
   className?: string;
   style?: CSSProperties;
   children?: any;
-} & ConnectStyleProps
+} & ConnectStyleProps;
 
 type States = {};
 

@@ -10,8 +10,8 @@ class Image extends PureComponent<Props, States> {
   }
 
   componentDidMount(): void {
-    const {src, onProgress, onLoadStart, onLoadEnd} = this.props;
-    if (onProgress || onLoadStart || onLoadEnd) {
+    const {src, onLoading, onLoadInit, onLoadDone} = this.props;
+    if (onLoading || onLoadInit || onLoadDone) {
       this.renderImage(src);
       return;
     }
@@ -19,42 +19,32 @@ class Image extends PureComponent<Props, States> {
   }
 
   renderImage = (src: string) => {
-    const {onProgress, onLoadStart, onLoadEnd} = this.props;
+    const {onLoading, onLoadInit, onLoadDone} = this.props;
     const request = new XMLHttpRequest();
     request.responseType = 'arraybuffer';
     request.open('GET', src, true);
     request.onprogress = function (e) {
       const loadPercentage = Math.floor((e.loaded / e.total) * 100);
-      onProgress && onProgress(loadPercentage);
+      onLoading && onLoading(loadPercentage);
     };
     request.onloadstart = () => {
-      onLoadStart && onLoadStart();
+      onLoadInit && onLoadInit();
     };
     request.onloadend = () => {
       const blob = new Blob([request.response]);
       const source = window.URL.createObjectURL(blob);
       this.setState({src: source});
 
-      onLoadEnd && onLoadEnd();
+      onLoadDone && onLoadDone();
     };
     request.send();
   };
 
   render(): ReactNode {
     const {src} = this.state;
-    const {style, className, draggable, onLoad, onDragStart} = this.props;
+    const {style, className, ...rest} = this.props;
 
-    return (
-      <img
-        src={src}
-        className={className}
-        style={style}
-        alt={className}
-        onLoad={onLoad}
-        onDragStart={onDragStart}
-        draggable={draggable}
-      />
-    );
+    return <img {...rest} src={src} className={className} />;
   }
 }
 

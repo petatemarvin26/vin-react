@@ -6,18 +6,10 @@ import styles from './.module.css';
 
 class View extends PureComponent<Props, States> {
   render(): ReactNode {
-    const {
-      className,
-      children,
-      reference = () => {},
-      classNames = () => '',
-      ...rest
-    } = this.props;
-
+    const {className, children, classNames = () => '', ...rest} = this.props;
     const viewStyle = classNames(['vr-view', className]);
-
     return (
-      <div {...rest} className={viewStyle} ref={(_ref) => reference(_ref!)}>
+      <div {...rest} className={viewStyle}>
         {children}
       </div>
     );

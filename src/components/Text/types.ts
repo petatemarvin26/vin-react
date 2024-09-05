@@ -6,6 +6,7 @@ type Props = {
   className?: string;
   style?: CSSProperties;
   children?: any;
+  ref?: React.LegacyRef<HTMLParagraphElement>;
 } & ConnectStyleProps;
 
 type States = {};

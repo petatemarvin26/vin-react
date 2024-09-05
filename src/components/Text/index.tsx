@@ -6,12 +6,18 @@ import styles from './.module.css';
 
 class Text extends PureComponent<Props, States> {
   render(): ReactNode {
-    const {children, className, style, classNames = () => ''} = this.props;
+    const {
+      children,
+      className,
+      style,
+      classNames = () => '',
+      ...rest
+    } = this.props;
 
     const textStyle = classNames(['vr-text', className]);
 
     return (
-      <p className={textStyle} style={style}>
+      <p {...rest} className={textStyle} style={style}>
         {children}
       </p>
     );
