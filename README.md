@@ -106,7 +106,7 @@ import {View} from 'vin-react'
 const App: React.FC = () => {
   const myview = useRef<HTMLDivElement>();
   return (
-    <View reference={ref => (myview.current = ref)}>
+    <View ref={myview}>
       <button>CLICK ME!</button>
     </View>
   )
