@@ -7,7 +7,8 @@ type Props = {
   style?: CSSProperties;
   children?: any;
   ref?: React.LegacyRef<HTMLParagraphElement>;
-} & ConnectStyleProps;
+} & React.HTMLAttributes<HTMLParagraphElement> &
+  ConnectStyleProps;
 
 type States = {};
 

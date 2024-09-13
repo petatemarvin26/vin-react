@@ -9,7 +9,7 @@ type Props = {
   ref?: React.LegacyRef<HTMLDivElement>;
   inputRef?: (ref: HTMLInputElement | null) => any;
   onChangeText?: (value: string, event: ChangeEvent<HTMLInputElement>) => void;
-};
+} & React.HTMLAttributes<HTMLInputElement>;
 
 type States = {};
 
