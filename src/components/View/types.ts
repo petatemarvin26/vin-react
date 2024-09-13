@@ -12,7 +12,8 @@ type Props = {
   onMouseLeave?: MouseEventHandler<HTMLDivElement>;
   onClick?: MouseEventHandler<HTMLDivElement>;
   onScroll?: UIEventHandler<HTMLDivElement>;
-} & ConnectStyleProps;
+} & React.HTMLAttributes<HTMLDivElement> &
+  ConnectStyleProps;
 
 type States = {};
 
