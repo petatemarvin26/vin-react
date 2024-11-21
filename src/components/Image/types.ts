@@ -8,7 +8,7 @@ type Props = {
   onLoadInit?: () => void;
   onLoadDone?: () => void;
   onLoading?: (percent: number) => void;
-} & React.HTMLAttributes<HTMLImageElement>;
+} & React.ImgHTMLAttributes<HTMLImageElement>;
 
 type States = {
   src: any;

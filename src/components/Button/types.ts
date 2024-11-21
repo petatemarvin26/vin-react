@@ -7,7 +7,7 @@ type Props = {
   children?: any;
   title?: string;
   onClick?: MouseEventHandler<HTMLButtonElement>;
-} & React.HTMLAttributes<HTMLButtonElement> &
+} & React.ButtonHTMLAttributes<HTMLButtonElement> &
   ConnectStyleProps;
 
 type States = {};

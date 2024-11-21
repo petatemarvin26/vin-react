@@ -22,7 +22,8 @@ type Props = {
    * @default `1s`
    */
   speed?: number;
-} & ConnectStyleProps;
+} & ConnectStyleProps &
+  React.SVGAttributes<HTMLOrSVGElement>;
 
 type State = {};
 

@@ -5,7 +5,9 @@ type Props = {
   className?: string;
   style?: CSSProperties;
   children?: any;
-} & ConnectStyleProps;
+} & ConnectStyleProps &
+  React.HTMLAttributes<HTMLHeadingElement> &
+  ConnectStyleProps;
 
 type States = {};
 

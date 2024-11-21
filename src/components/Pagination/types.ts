@@ -2,10 +2,7 @@ import {MouseEvent} from 'react';
 import {ConnectStyleProps} from '@/hoc/types';
 
 type HandleClickPage = {
-  (key: number): (
-    page: number,
-    e: MouseEvent<HTMLButtonElement>
-  ) => void;
+  (key: number): (page: number, e: MouseEvent<HTMLButtonElement>) => void;
 };
 
 type State = {
@@ -31,10 +28,8 @@ type Props = {
    * Current page selected
    */
   currentPage?: number;
-  onPageChange?: (
-    page: number,
-    event: MouseEvent<HTMLButtonElement>
-  ) => void;
-} & ConnectStyleProps;
+  onPageChange?: (page: number, event: MouseEvent<HTMLButtonElement>) => void;
+} & ConnectStyleProps &
+  React.HTMLAttributes<HTMLDivElement>;
 
 export type {Props, State, HandleClickPage};
