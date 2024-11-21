@@ -9,6 +9,7 @@ type Props = {
   max?: number;
   value?: number;
   onChange?: (next: number) => void;
-} & ConnectStyleProps;
+} & ConnectStyleProps &
+  React.HTMLAttributes<HTMLDivElement>;
 
 export type {Props};

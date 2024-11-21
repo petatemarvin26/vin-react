@@ -22,6 +22,7 @@ type Props = {
    */
   speed?: number;
   color?: string;
-} & ConnectStyleProps;
+} & ConnectStyleProps &
+  React.SVGAttributes<HTMLOrSVGElement>;
 
 export type {Props};
