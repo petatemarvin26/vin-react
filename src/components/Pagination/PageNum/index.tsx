@@ -14,12 +14,12 @@ class PageNum extends PureComponent<Props> {
     const {handleClick} = this;
     const {className, number, isSelected, classNames = () => ''} = this.props;
 
-    const pageNumStyle = classNames(['vr-page-num', className], {
+    const _className = classNames(['vr-page-num', className], {
       'vr-page-num-sel': isSelected
     });
 
     return (
-      <button className={pageNumStyle} onClick={handleClick}>
+      <button className={_className} onClick={handleClick}>
         {number}
       </button>
     );

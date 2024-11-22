@@ -1,4 +1,5 @@
 import {PureComponent, ReactNode} from 'react';
+import {connectStyle} from '@/hoc';
 
 import {Props, States} from './types';
 import styles from './.module.css';
@@ -7,29 +8,31 @@ class Input extends PureComponent<Props, States> {
   render(): ReactNode {
     const {
       className,
-      style,
-      placeholder,
-      value,
+      prefixClassName,
       prefixComponent,
+      panelProps,
+      panelRef = () => {},
       onChangeText = () => {},
-      inputRef = () => {},
-      ...rest
+      classNames = () => '',
+      ...props
     } = this.props;
 
-    let _className = styles['main-pane'];
-    if (className) _className += ` ${className}`;
+    const inputClassName = classNames(['input', className]);
+    const _prefixClassName = classNames(['prefix-pane', prefixClassName]);
+    const panelClassName = classNames(['main-pane', panelProps?.className]);
 
     return (
-      <div {...rest} className={_className}>
+      <div
+        {...panelProps}
+        ref={(ref) => panelRef(ref)}
+        className={panelClassName}
+      >
         {prefixComponent && (
-          <div className={styles['prefix-pane']}>{prefixComponent}</div>
+          <div className={_prefixClassName}>{prefixComponent}</div>
         )}
         <input
-          ref={(ref) => inputRef(ref)}
-          className={styles['input']}
-          style={style}
-          placeholder={placeholder}
-          value={value}
+          {...props}
+          className={inputClassName}
           onChange={(e) => onChangeText(e.target.value, e)}
         />
       </div>
@@ -37,4 +40,4 @@ class Input extends PureComponent<Props, States> {
   }
 }
 
-export default Input;
+export default connectStyle(styles)(Input);

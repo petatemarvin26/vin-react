@@ -14,10 +14,10 @@ class Text extends PureComponent<Props, States> {
       ...rest
     } = this.props;
 
-    const textStyle = classNames(['vr-text', className]);
+    const _className = classNames(['vr-text', className]);
 
     return (
-      <p {...rest} className={textStyle} style={style}>
+      <p {...rest} className={_className} style={style}>
         {children}
       </p>
     );

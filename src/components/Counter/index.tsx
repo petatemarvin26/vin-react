@@ -25,10 +25,10 @@ class Counter extends PureComponent<Props> {
     const {
       className,
       value = 0,
-      classNames = () => '',
       classNameButton,
       classNameIcon,
-      classNameNumber
+      classNameNumber,
+      classNames = () => '',
     } = this.props;
 
     const counterStyle = classNames(['vr-counter', className]);

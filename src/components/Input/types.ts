@@ -1,15 +1,14 @@
-import {CSSProperties, ReactNode, ChangeEvent} from 'react';
+import {ConnectStyleProps} from '@/hoc/types';
+import {ReactNode, ChangeEvent} from 'react';
 
 type Props = {
-  className?: string;
-  style?: CSSProperties;
-  placeholder?: string;
-  value?: string;
+  prefixClassName?: string;
   prefixComponent?: ReactNode;
-  ref?: React.LegacyRef<HTMLDivElement>;
-  inputRef?: (ref: HTMLInputElement | null) => any;
+  panelRef?: (ref: HTMLDivElement | null) => any;
+  panelProps?: React.HTMLAttributes<HTMLDivElement>;
   onChangeText?: (value: string, event: ChangeEvent<HTMLInputElement>) => void;
-} & React.InputHTMLAttributes<HTMLInputElement>;
+} & React.InputHTMLAttributes<HTMLInputElement> &
+  ConnectStyleProps;
 
 type States = {};
 
