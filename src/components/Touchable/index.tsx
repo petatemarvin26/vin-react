@@ -11,6 +11,7 @@ class Button extends PureComponent<Props, States> {
       style,
       title,
       children,
+      type = 'button',
       classNames = () => '',
       onClick = () => {},
       ...rest
@@ -19,7 +20,7 @@ class Button extends PureComponent<Props, States> {
     const _className = classNames(['vr-button', className]);
 
     return (
-      <button {...rest} className={_className} style={style} onClick={onClick}>
+      <button {...rest} type={type} className={_className} style={style} onClick={onClick}>
         {title ? title : children}
       </button>
     );

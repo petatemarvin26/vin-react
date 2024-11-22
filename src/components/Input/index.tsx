@@ -10,6 +10,8 @@ class Input extends PureComponent<Props, States> {
       className,
       prefixClassName,
       prefixComponent,
+      suffixClassName,
+      suffixComponent,
       panelProps,
       panelRef = () => {},
       onChangeText = () => {},
@@ -19,6 +21,7 @@ class Input extends PureComponent<Props, States> {
 
     const inputClassName = classNames(['input', className]);
     const _prefixClassName = classNames(['prefix-pane', prefixClassName]);
+    const _suffixClassName = classNames(['suffix-pane', suffixClassName]);
     const panelClassName = classNames(['main-pane', panelProps?.className]);
 
     return (
@@ -35,6 +38,9 @@ class Input extends PureComponent<Props, States> {
           className={inputClassName}
           onChange={(e) => onChangeText(e.target.value, e)}
         />
+        {suffixComponent && (
+          <div className={_suffixClassName}>{suffixComponent}</div>
+        )}
       </div>
     );
   }

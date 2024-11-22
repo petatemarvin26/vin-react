@@ -1,4 +1,4 @@
-import Button from './Button';
+import Touchable from './Touchable';
 import Counter from './Counter';
 import HeaderText from './HeaderText';
 import Image from './Image';
@@ -9,7 +9,7 @@ import Text from './Text';
 import View from './View';
 
 export {
-  Button,
+  Touchable,
   Counter,
   HeaderText,
   Image,
