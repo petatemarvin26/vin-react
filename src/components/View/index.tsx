@@ -7,9 +7,9 @@ import styles from './.module.css';
 class View extends PureComponent<Props, States> {
   render(): ReactNode {
     const {className, children, classNames = () => '', ...rest} = this.props;
-    const viewStyle = classNames(['vr-view', className]);
+    const _className = classNames(['vr-view', className]);
     return (
-      <div {...rest} className={viewStyle}>
+      <div {...rest} className={_className}>
         {children}
       </div>
     );

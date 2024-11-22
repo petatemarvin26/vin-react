@@ -16,10 +16,10 @@ class Button extends PureComponent<Props, States> {
       ...rest
     } = this.props;
 
-    const btnStyles = classNames(['vr-button', className]);
+    const _className = classNames(['vr-button', className]);
 
     return (
-      <button {...rest} className={btnStyles} style={style} onClick={onClick}>
+      <button {...rest} className={_className} style={style} onClick={onClick}>
         {title ? title : children}
       </button>
     );

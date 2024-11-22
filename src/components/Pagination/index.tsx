@@ -54,7 +54,7 @@ class Pagination extends PureComponent<Props, State> {
     const {className, classNamePageNum, classNames = () => ''} = this.props;
     const {pages} = this.state;
 
-    const pageNumStyle = classNames(['vr-pagination', className]);
+    const _className = classNames(['vr-pagination', className]);
     const renderPageNum = pages.map((page, key) => {
       return (
         <PageNum
@@ -68,7 +68,7 @@ class Pagination extends PureComponent<Props, State> {
     });
 
     return (
-      <div ref={(ref) => (this.ref = ref)} className={pageNumStyle}>
+      <div ref={(ref) => (this.ref = ref)} className={_className}>
         {renderPageNum}
       </div>
     );

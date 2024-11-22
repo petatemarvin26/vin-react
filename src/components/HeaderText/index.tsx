@@ -14,10 +14,10 @@ class HeaderText extends PureComponent<Props, States> {
       ...rest
     } = this.props;
 
-    const headerTextStyle = classNames(['header-text', className]);
+    const _className = classNames(['header-text', className]);
 
     return (
-      <h1 {...rest} className={headerTextStyle} style={style}>
+      <h1 {...rest} className={_className} style={style}>
         {children}
       </h1>
     );
