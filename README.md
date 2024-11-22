@@ -18,7 +18,7 @@ npm install --save vin-react
 
 #### Components
 
-- [Button](#Button)
+- [Touchable](#Touchable)
 - [Counter](#Counter)
 - HeaderText
 - Image
@@ -39,16 +39,16 @@ npm install --save vin-react
 
 ## Examples
 
-##### `Button`
+##### `Touchable`
 
 ```TSX
-import {Button} from 'vin-react'
+import {Touchable} from 'vin-react'
 ...
 const App: React.FC = () => {
   return (
     <div>
-      <Button onClick={() => console.log('CLICK')}>Click Me</Button>
-      <Button title="Click Me" onClick={() => console.log('CLICK')}/>
+      <Touchable onClick={() => console.log('CLICK')}>Click Me</Touchable>
+      <Touchable title="Click Me" onClick={() => console.log('CLICK')}/>
     </div>
   )
 }
