@@ -1,0 +1,16 @@
+.dropdown {
+  width: 100%;
+  position: relative;
+  background-color: red;
+}
+
+.dropdown .selected {
+  width: 100%;
+  height: 100%;
+}
+
+.dropdown .dropdown-list {
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+}

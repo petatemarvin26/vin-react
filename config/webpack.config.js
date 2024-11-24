@@ -53,7 +53,19 @@ module.exports = (env) => {
         },
         {
           test: CSS_FILE,
-          use: ['style-loader', 'css-loader']
+          use: [
+            'style-loader',
+            {
+              loader: 'css-loader',
+              options: {
+                modules: {
+                  namedExport: false,
+                  exportLocalsConvention: (n) => n,
+                  localIdentName: '[hash:10]_[local]'
+                }
+              }
+            }
+          ]
         },
         {
           test: SVG_FILE,
