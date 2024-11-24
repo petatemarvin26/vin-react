@@ -1,21 +1,10 @@
-import Touchable from './Touchable';
-import Counter from './Counter';
-import HeaderText from './HeaderText';
-import Image from './Image';
-import * as Indicator from './Indicator';
-import Input from './Input';
-import Pagination from './Pagination';
-import Text from './Text';
-import View from './View';
-
-export {
-  Touchable,
-  Counter,
-  HeaderText,
-  Image,
-  Indicator,
-  Input,
-  Pagination,
-  Text,
-  View
-};
+export {default as Touchable} from './Touchable';
+export {default as Counter} from './Counter';
+export {default as Dropdown} from './Dropdown';
+export {default as HeaderText} from './HeaderText';
+export {default as Image} from './Image';
+export * as Indicator from './Indicator';
+export {default as Input} from './Input';
+export {default as Pagination} from './Pagination';
+export {default as Text} from './Text';
+export {default as View} from './View';
