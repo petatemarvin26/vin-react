@@ -1,0 +1,37 @@
+.vr-main-pane {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  border: solid 1px rgba(0, 0, 0, 0.1);
+}
+
+.vr-main-pane .vr-input {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding-left: 5%;
+  background-color: transparent;
+  font-weight: 200;
+  font-size: 13px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: rgb(44, 40, 51);
+}
+
+.vr-input:focus {
+  outline: none;
+}
+
+.vr-main-pane .vr-prefix-pane {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+.vr-main-pane .vr-suffix-pane {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
