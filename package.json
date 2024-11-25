@@ -34,7 +34,7 @@
     "types": "npx tspc",
     "clean": "rm -rf ./lib",
     "bundle": "npx webpack --config ./config/webpack.config.js",
-    "build": "npm run clean && npm run bundle && npm run types",
+    "build": "npm run clean && npm run bundle; npm run types",
     "dev": "npm-watch"
   },
   "watch": {

@@ -1,5 +1,6 @@
 import {PureComponent, ReactNode} from 'react';
 import {connectStyle} from '@/hoc';
+import {Touchable} from '@/components';
 
 import {Props} from './types';
 import {DownIcon, UpIcon} from './icons';
@@ -28,7 +29,7 @@ class Counter extends PureComponent<Props> {
       classNameButton,
       classNameIcon,
       classNameNumber,
-      classNames = () => '',
+      classNames = () => ''
     } = this.props;
 
     const counterStyle = classNames(['vr-counter', className]);
@@ -38,13 +39,13 @@ class Counter extends PureComponent<Props> {
 
     return (
       <div className={counterStyle}>
-        <button className={btnActionStyle} onClick={handleChange(1)}>
+        <Touchable className={btnActionStyle} onClick={handleChange(1)}>
           <UpIcon className={iconStyle} />
-        </button>
+        </Touchable>
         <p className={numberStyle}>{value}</p>
-        <button className={btnActionStyle} onClick={handleChange(-1)}>
+        <Touchable className={btnActionStyle} onClick={handleChange(-1)}>
           <DownIcon className={iconStyle} />
-        </button>
+        </Touchable>
       </div>
     );
   }

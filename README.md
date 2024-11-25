@@ -18,14 +18,15 @@ npm install --save vin-react
 
 #### Components
 
-- [Touchable](#Touchable)
 - [Counter](#Counter)
+- [Dropdown](#Dropdown)
 - HeaderText
 - Image
 - [Indicator](#indicator)
 - Input
 - [Pagination](#Pagination)
 - Text
+- [Touchable](#Touchable)
 - [View](#View)
 
 #### Floating Components
@@ -39,21 +40,6 @@ npm install --save vin-react
 
 ## Examples
 
-##### `Touchable`
-
-```TSX
-import {Touchable} from 'vin-react'
-...
-const App: React.FC = () => {
-  return (
-    <div>
-      <Touchable onClick={() => console.log('CLICK')}>Click Me</Touchable>
-      <Touchable title="Click Me" onClick={() => console.log('CLICK')}/>
-    </div>
-  )
-}
-```
-
 ##### `Counter`
 
 ```TSX
@@ -65,6 +51,26 @@ const App: React.FC = () => {
       <Counter
         max={10}
         onChange={nextNum => console.log(nextNum)}
+      />
+    </div>
+  )
+}
+```
+
+##### `Dropdown`
+
+```TSX
+import {Dropdown} from 'vin-react'
+...
+const App: React.FC = () => {
+  return (
+    <div>
+      <Dropdown
+        onChange={selected => console.log(selected)}
+        data={[
+          {label: 'One', value: 1},
+          {label: 'Two', value: 2}
+        ]}
       />
     </div>
   )
@@ -98,42 +104,6 @@ const App: React.FC = () => {
 }
 ```
 
-##### `View`
-
-```TSX
-import {View} from 'vin-react'
-...
-const App: React.FC = () => {
-  const myview = useRef<HTMLDivElement>();
-  return (
-    <View ref={myview}>
-      <button>CLICK ME!</button>
-    </View>
-  )
-}
-```
-
-##### `Pagination`
-
-```TSX
-import {Pagination} from 'vin-react'
-...
-const App: React.FC = () => {
-  return (
-    <div>
-      <Pagination
-        maxPageDisplay={5}
-        totalData={15}
-        currentPage={2}
-        onPageChange={(page, e) => {
-          console.log(page, e);
-        }}
-      />
-    </div>
-  );
-};
-```
-
 ##### `Modal`
 
 ```JSX
@@ -161,6 +131,57 @@ const handleShowModal = () => {
 }
 const handleHideModal = () => {
   hideModal()
+}
+```
+
+##### `Pagination`
+
+```TSX
+import {Pagination} from 'vin-react'
+...
+const App: React.FC = () => {
+  return (
+    <div>
+      <Pagination
+        maxPageDisplay={5}
+        totalData={15}
+        currentPage={2}
+        onPageChange={(page, e) => {
+          console.log(page, e);
+        }}
+      />
+    </div>
+  );
+};
+```
+
+##### `Touchable`
+
+```TSX
+import {Touchable} from 'vin-react'
+...
+const App: React.FC = () => {
+  return (
+    <div>
+      <Touchable onClick={() => console.log('CLICK')}>Click Me</Touchable>
+      <Touchable title="Click Me" onClick={() => console.log('CLICK')}/>
+    </div>
+  )
+}
+```
+
+##### `View`
+
+```TSX
+import {View} from 'vin-react'
+...
+const App: React.FC = () => {
+  const myview = useRef<HTMLDivElement>();
+  return (
+    <View ref={myview}>
+      <button>CLICK ME!</button>
+    </View>
+  )
 }
 ```
 
