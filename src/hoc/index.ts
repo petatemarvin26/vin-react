@@ -1,3 +1,3 @@
-import connectStyle from "./connectStyle";
+import connectStyle from './connectStyle';
 
-export {connectStyle}
+export {connectStyle};
