@@ -2,8 +2,8 @@ import {PureComponent, ReactNode} from 'react';
 
 import {connectStyle} from '@/hoc';
 
-import styles from './.module.css';
 import {Props} from './types';
+import styles from './styles.css';
 
 class Bar extends PureComponent<Props> {
   ref: SVGElement | null = null;

@@ -2,7 +2,7 @@ import {PureComponent, ReactNode} from 'react';
 import {connectStyle} from '@/hoc';
 
 import {Props, States} from './types';
-import styles from './.module.css';
+import styles from './styles.css';
 
 class HeaderText extends PureComponent<Props, States> {
   render(): ReactNode {
@@ -14,7 +14,7 @@ class HeaderText extends PureComponent<Props, States> {
       ...rest
     } = this.props;
 
-    const _className = classNames(['header-text', className]);
+    const _className = classNames(['vr-header-text', className]);
 
     return (
       <h1 {...rest} className={_className} style={style}>

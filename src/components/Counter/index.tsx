@@ -4,7 +4,7 @@ import {Touchable} from '@/components';
 
 import {Props} from './types';
 import {DownIcon, UpIcon} from './icons';
-import styles from './.module.css';
+import styles from './styles.css';
 
 class Counter extends PureComponent<Props> {
   constructor(props: Props) {
