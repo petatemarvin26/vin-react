@@ -17,7 +17,7 @@ class Button extends PureComponent<Props, States> {
       ...rest
     } = this.props;
 
-    const _className = classNames(['vr-button', className]);
+    const _className = classNames(['vr-touchable', className]);
 
     return (
       <button {...rest} type={type} className={_className} style={style} onClick={onClick}>

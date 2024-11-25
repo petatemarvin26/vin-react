@@ -1,4 +1,4 @@
-.vr-button {
+.vr-touchable {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,11 +14,11 @@
   color: rgb(44, 40, 51);
 }
 
-.vr-button:active {
+.vr-touchable:active {
   outline: none;
   opacity: 0.8;
 }
 
-.vr-button:hover {
+.vr-touchable:hover {
   cursor: pointer;
 }

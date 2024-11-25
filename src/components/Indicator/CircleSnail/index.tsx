@@ -2,7 +2,7 @@ import {PureComponent, ReactNode} from 'react';
 
 import {connectStyle} from '@/hoc';
 
-import styles from './.module.css';
+import styles from './styles.css';
 import {Props, State} from './types';
 
 class CircleSnail extends PureComponent<Props, State> {
