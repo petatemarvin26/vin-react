@@ -8,6 +8,8 @@ import styles from './styles.css';
 import {connectStyle} from '@/hoc';
 
 class Dropdown extends PureComponent<Props, State> {
+  ref: HTMLDivElement | null = null;
+
   constructor(props: Props) {
     super(props);
 
@@ -34,9 +36,7 @@ class Dropdown extends PureComponent<Props, State> {
 
   componentDidMount(): void {
     document.addEventListener('click', (e) => {
-      const dropdown = document.getElementById('vr-dropdown');
-
-      if (!dropdown?.contains(e.target as Node))
+      if (!this.ref?.contains(e.target as Node))
         this.setState((prev) => ({...prev, show: false}));
     });
   }
@@ -77,7 +77,7 @@ class Dropdown extends PureComponent<Props, State> {
     ]);
 
     return (
-      <div id='vr-dropdown' className={_dClassName}>
+      <div ref={(ref) => (this.ref = ref)} className={_dClassName}>
         <div className={_spClassName}>
           <Touchable className={_sbClassName} onClick={handleClick}>
             {selected?.label ?? <span>{placeholder}</span>}
