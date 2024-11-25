@@ -2,7 +2,7 @@ import {PureComponent, ReactNode} from 'react';
 import {connectStyle} from '@/hoc';
 
 import {Props, States} from './types';
-import styles from './.module.css';
+import styles from './styles.css';
 
 class Input extends PureComponent<Props, States> {
   render(): ReactNode {
