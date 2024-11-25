@@ -12,6 +12,10 @@ class Dropdown extends PureComponent<Props, State> {
     };
   }
 
+  componentDidMount(): void {
+    console.log('HELLO WORLD');
+  }
+
   render(): ReactNode {
     const renderItem = () => {
       return this.state.data.map((d) => {
@@ -22,7 +26,7 @@ class Dropdown extends PureComponent<Props, State> {
     return (
       <div className={styles['dropdown']}>
         <div className={styles['selected']}>
-          <span>Select patron</span>
+          <span>Select Item</span>
         </div>
         <div className={styles['dropdown-list']}>{renderItem()}</div>
       </div>

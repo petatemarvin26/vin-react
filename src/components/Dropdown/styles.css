@@ -1,7 +1,7 @@
 .dropdown {
   width: 100%;
   position: relative;
-  background-color: red;
+  background-color: rgb(98, 220, 98);
 }
 
 .dropdown .selected {
@@ -13,4 +13,6 @@
   position: absolute;
   width: 100%;
   min-height: 100%;
+  top: 100%;
+  background-color: rgb(138, 245, 138);
 }
