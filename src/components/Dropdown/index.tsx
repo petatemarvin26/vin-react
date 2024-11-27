@@ -57,9 +57,9 @@ class Dropdown extends PureComponent<Props, State> {
     } = this.props;
 
     const renderItem = () => {
-      return this.state.data.map((d) => (
-        <Item {...d} onClick={(e) => handleSelect(e, d)} />
-      ));
+      return this.state.data
+        .filter((d) => d.value !== selected?.value)
+        .map((d) => <Item {...d} onClick={(e) => handleSelect(e, d)} />);
     };
 
     const _dClassName = classNames(['vr-dropdown', dClassName]);
