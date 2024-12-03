@@ -1,4 +1,4 @@
-.vr-main-pane {
+.vr-input-pane {
   display: flex;
   flex-direction: row;
   margin: 0;
@@ -8,11 +8,10 @@
   border: solid 1px rgba(0, 0, 0, 0.1);
 }
 
-.vr-main-pane .vr-input {
+.vr-input-pane .vr-input {
   width: 100%;
   height: 100%;
   margin: 0;
-  padding-left: 5%;
   background-color: transparent;
   border: none;
   font-weight: 200;
@@ -26,12 +25,12 @@
   outline: none;
 }
 
-.vr-main-pane .vr-prefix-pane {
+.vr-input-pane .vr-prefix-pane {
   display: flex;
   margin: 0;
   padding: 0;
 }
-.vr-main-pane .vr-suffix-pane {
+.vr-input-pane .vr-suffix-pane {
   display: flex;
   margin: 0;
   padding: 0;
