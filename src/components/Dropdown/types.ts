@@ -2,11 +2,11 @@ import {Props as ItemProps} from '@/common/components/Item/types';
 import {ConnectStyleProps} from '@/hoc/types';
 
 type Props = {
-  dClassName?: string;
-  spClassName?: string;
-  sbClassName?: string;
-  dlClassName?: string;
-  dlcClassName?: string;
+  dropdownClassName?: string;
+  selectedClassName?: string;
+  selectedBtnClassName?: string;
+  dropdownListClassName?: string;
+  dropdownListContClassName?: string;
   placeholder?: string;
   suffixComponent?: any;
   suffixClassName?: string;

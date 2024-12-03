@@ -45,11 +45,11 @@ class Dropdown extends PureComponent<Props, State> {
     const {handleSelect, handleClick} = this;
     const {selected, show} = this.state;
     const {
-      dClassName,
-      spClassName,
-      sbClassName,
-      dlClassName,
-      dlcClassName,
+      dropdownClassName,
+      selectedClassName,
+      selectedBtnClassName,
+      dropdownListClassName,
+      dropdownListContClassName,
       placeholder = 'Select Item...',
       suffixClassName,
       suffixComponent,
@@ -62,18 +62,21 @@ class Dropdown extends PureComponent<Props, State> {
         .map((d) => <Item {...d} onClick={(e) => handleSelect(e, d)} />);
     };
 
-    const _dClassName = classNames(['vr-dropdown', dClassName]);
-    const _spClassName = classNames(['vr-selected-pane', spClassName]);
-    const _sbClassName = classNames(['vr-selected-btn', sbClassName]);
+    const _dClassName = classNames(['vr-dropdown', dropdownClassName]);
+    const _spClassName = classNames([
+      'vr-selected-pane',
+      selectedClassName
+    ]);
+    const _sbClassName = classNames(['vr-selected-btn', selectedBtnClassName]);
     const _dlClassName = classNames([
       'vr-dropdown-list',
       show ? 's' : 'h',
-      dlClassName
+      dropdownListClassName
     ]);
     const _suffixClassName = classNames(['vr-suffix-pane', suffixClassName]);
     const _dlcClassName = classNames([
       'vr-dropdown-list-container',
-      dlcClassName
+      dropdownListContClassName
     ]);
 
     return (

@@ -19,10 +19,10 @@ class Input extends PureComponent<Props, States> {
       ...props
     } = this.props;
 
+    const panelClassName = classNames(['vr-input-pane', panelProps?.className]);
     const inputClassName = classNames(['vr-input', className]);
     const _prefixClassName = classNames(['vr-prefix-pane', prefixClassName]);
     const _suffixClassName = classNames(['vr-suffix-pane', suffixClassName]);
-    const panelClassName = classNames(['vr-main-pane', panelProps?.className]);
 
     return (
       <div
