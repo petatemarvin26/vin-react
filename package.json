@@ -1,6 +1,6 @@
 {
   "name": "vin-react",
-  "version": "5.0.3",
+  "version": "5.0.4",
   "description": "This library is exclusive for react that utilize the flexbox.",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -91,8 +91,8 @@
     "webpack": "^5.77.0",
     "webpack-cli": "^5.0.1"
   },
-  "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   }
 }
