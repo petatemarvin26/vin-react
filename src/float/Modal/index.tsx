@@ -1,4 +1,4 @@
-import  {PureComponent, ReactNode, createContext} from 'react';
+import {PureComponent, ReactNode, createContext} from 'react';
 import ReactDOM from 'react-dom';
 import Transparent from './Transparent';
 import {
@@ -21,13 +21,13 @@ class Provider extends PureComponent<Props, State> {
   root: HTMLElement;
   constructor(props: Props) {
     super(props);
-    this.state = {component: null};
+    this.state = {component: null, config: {isClosableOutside: true}};
     this.root = document.getElementById(props.portalTo ?? 'root')!;
   }
 
-  showModal: OnShowModal = (component) => {
+  showModal: OnShowModal = (component, config = this.state.config) => {
     document.body.style.overflowY = 'hidden';
-    this.setState((prev) => ({...prev, component}));
+    this.setState((prev) => ({...prev, component, config}));
   };
   hideModal: OnHideModal = () => {
     document.body.style.overflowY = 'auto';
@@ -37,10 +37,14 @@ class Provider extends PureComponent<Props, State> {
   render(): ReactNode {
     const {root, showModal, hideModal} = this;
     const {children} = this.props;
-    const {component} = this.state;
+    const {component, config} = this.state;
 
     const renderTemplate = (
-      <Transparent root={root} onClose={hideModal} visible={!!component}>
+      <Transparent
+        root={root}
+        onClose={() => config.isClosableOutside && hideModal()}
+        visible={!!component}
+      >
         {component}
       </Transparent>
     );
