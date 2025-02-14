@@ -21,9 +21,9 @@ npm install --save vin-react
 - [Counter](#Counter)
 - [Dropdown](#Dropdown)
 - HeaderText
-- Image
+- [Image](#Image)
 - [Indicator](#indicator)
-- Input
+- [Input](#Input)
 - [Pagination](#Pagination)
 - Text
 - [Touchable](#Touchable)
@@ -33,6 +33,11 @@ npm install --save vin-react
 
 - [Modal](#Modal)
 - Toast
+
+#### Hooks
+
+- [useModal](#Modal)
+- useToast
 
 #### Higher Order Component (HOC)
 
@@ -77,6 +82,22 @@ const App: React.FC = () => {
 }
 ```
 
+##### `Image`
+
+```TSX
+import {Image} from 'vin-react'
+...
+const App: React.FC = () => {
+  const [imgProg, setImageProgress] = useState<number>(0)
+  return (
+    <div>
+      {`Image render ${imgProg}%`}
+      <Image onLoading={setImageProgress}/>
+    </div>
+  )
+}
+```
+
 ##### `Indicator`
 
 ```TSX
@@ -104,6 +125,24 @@ const App: React.FC = () => {
 }
 ```
 
+##### `Input`
+
+```TSX
+import {Input, Indicator} from 'vin-react'
+...
+const App: React.FC = () => {
+  return (
+    <div>
+      <Input
+        placeholder='password'
+        prefixComponent={<LockIcon/>}
+        suffixComponent={<Indicator progress={0.5}/>}
+      />
+    </div>
+  )
+}
+```
+
 ##### `Modal`
 
 ```JSX
@@ -121,18 +160,23 @@ container.render(
 )
 
 // App.tsx
-const {showModal, hideModal} = useConext(Modal.Context);
+import {useModal} from 'vin-react';
+
+const [showModal, hideModal] = useModal();
 const handleShowModal = () => {
   showModal(
     <div>
       <p>HI, THIS IS MODAL</p>
-    </div>
+    </div>,
+    { isClosableOutside: false }
   )
 }
 const handleHideModal = () => {
   hideModal()
 }
 ```
+
+> NOTE: Make sure the Modal Provider is at the hierarchy position of dom
 
 ##### `Pagination`
 

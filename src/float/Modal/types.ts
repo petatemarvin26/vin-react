@@ -1,7 +1,11 @@
 import {Context, ComponentClass} from 'react';
 
+type ModalConfig = {
+  isClosableOutside: boolean;
+};
+
 type OnShowModal = {
-  (component: JSX.Element): void;
+  (component: JSX.Element, config?: ModalConfig): void;
 };
 
 type OnHideModal = {
@@ -14,6 +18,7 @@ type Value = {
 };
 
 type State = {
+  config: ModalConfig;
   component: any;
 };
 
@@ -30,4 +35,12 @@ type ModalType = {
   Provider: ComponentClass<Props>;
 };
 
-export type {OnShowModal, OnHideModal, Value, State, Props, ModalType};
+export type {
+  OnShowModal,
+  OnHideModal,
+  ModalConfig,
+  Value,
+  State,
+  Props,
+  ModalType
+};

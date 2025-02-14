@@ -30,6 +30,10 @@ module.exports = (env) => {
         import: resolver('src/utils/index.ts'),
         filename: './utils/index.js'
       },
+      hooks: {
+        import: resolver('src/hooks/index.ts'),
+        filename: './hooks/index.js'
+      },
       hoc: {
         import: resolver('src/hoc/index.ts'),
         filename: './hoc/index.js'
