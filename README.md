@@ -92,7 +92,7 @@ const App: React.FC = () => {
   return (
     <div>
       {`Image render ${imgProg}%`}
-      <Image onLoading={setImageProgress}/>
+      <Image src='https://somewhere.com/yourimage.png' onLoading={setImageProgress}/>
     </div>
   )
 }
