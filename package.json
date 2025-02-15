@@ -1,6 +1,6 @@
 {
   "name": "vin-react",
-  "version": "5.1.1",
+  "version": "6.0.0",
   "description": "This library is exclusive for react that utilize the flexbox.",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -37,7 +37,7 @@
     "prepare": "npx ts-patch install",
     "types": "npx tspc",
     "clean": "rm -rf ./lib",
-    "bundle": "npm run types && npx webpack --config ./config/webpack.config.js",
+    "bundle": "npm run types; npx webpack --config ./config/webpack.config.js",
     "build": "npm run clean && npm run bundle; npm run types",
     "dev": "npm-watch"
   },

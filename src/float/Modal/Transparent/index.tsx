@@ -1,7 +1,7 @@
 import {PureComponent, ReactNode, RefObject, createRef} from 'react';
 
 import {Props} from './types';
-import styles from './.module.css';
+import styles from './styles.css';
 
 class Transparent extends PureComponent<Props> {
   root: HTMLElement;
@@ -36,15 +36,10 @@ class Transparent extends PureComponent<Props> {
     if (!visible) return null;
 
     return (
-      <div ref={ref} className={styles['template']} autoFocus={true}>
+      <div ref={ref} className={styles['transparent']} autoFocus={true}>
         {children}
       </div>
     );
   }
 }
-// const Transparent = forwardRef<Controller, Props>((props, ref) => (
-//   <Controller ref={ref} {...props} />
-// ));
-
-// export {Controller};
 export default Transparent;
