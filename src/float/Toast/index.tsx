@@ -37,9 +37,9 @@ class Provider extends PureComponent<Props, State> {
   showToast: OnShowToast = (context) => {
     if (typeof context === 'string') {
       this.setState((prev) => ({...prev, message: context}));
-      return;
+    } else {
+      this.setState((prev) => ({...prev, ...context}));
     }
-    this.setState((prev) => ({...prev, ...context}));
 
     if (this.timeout) clearTimeout(this.timeout);
     this.timeout = setTimeout(() => {
