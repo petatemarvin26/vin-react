@@ -10,9 +10,11 @@ class Popup extends PureComponent<Props, State> {
     return (
       visible && (
         <div className={styles['popup']}>
-          <div className={styles['title-pane']}>
-            {title && <h1>{title}</h1>}
-          </div>
+          {title && (
+            <div className={styles['title-pane']}>
+              <h1>{title}</h1>
+            </div>
+          )}
           <p>{message}</p>
         </div>
       )
