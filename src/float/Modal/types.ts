@@ -23,7 +23,7 @@ type State = {
 };
 
 type Props = {
-  children?: any;
+  children: React.ReactNode;
   /**
    * Set the id of an element that already registered in the DOM
    */

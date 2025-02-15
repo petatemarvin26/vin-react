@@ -1,7 +1,7 @@
 export {default as Touchable} from './Touchable';
 export {default as Counter} from './Counter';
 export {default as Dropdown} from './Dropdown';
-export {default as HeaderText} from './HeaderText';
+export {default as Header} from './Header';
 export {default as Image} from './Image';
 export * as Indicator from './Indicator';
 export {default as Input} from './Input';

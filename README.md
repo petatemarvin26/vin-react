@@ -11,7 +11,7 @@ is React library that focus the simplest way to use component and utilize the po
 ## Installation
 
 ```shell
-npm install --save vin-react
+npm install vin-react
 ```
 
 ## Features
@@ -20,7 +20,7 @@ npm install --save vin-react
 
 - [Counter](#Counter)
 - [Dropdown](#Dropdown)
-- HeaderText
+- Header
 - [Image](#Image)
 - [Indicator](#indicator)
 - [Input](#Input)
@@ -32,12 +32,12 @@ npm install --save vin-react
 #### Floating Components
 
 - [Modal](#Modal)
-- Toast
+- [Toast](#Toast)
 
 #### Hooks
 
 - [useModal](#Modal)
-- useToast
+- [useToast](#Toast)
 
 #### Higher Order Component (HOC)
 
@@ -88,11 +88,14 @@ const App: React.FC = () => {
 import {Image} from 'vin-react'
 ...
 const App: React.FC = () => {
-  const [imgProg, setImageProgress] = useState<number>(0)
+  const [imgProg, setImgProgress] = useState<number>(0)
   return (
     <div>
-      {`Image render ${imgProg}%`}
-      <Image src='https://somewhere.com/yourimage.png' onLoading={setImageProgress}/>
+      <p>Image render {imgProg}</p>
+      <Image
+        src='https://somewhere.com/yourimage.png'
+        onLoading={setImgProgress}
+      />
     </div>
   )
 }
@@ -176,7 +179,34 @@ const handleHideModal = () => {
 }
 ```
 
-> NOTE: Make sure the Modal Provider is at the hierarchy position of dom
+> NOTE: Make sure the Modal Provider is at the hierarchy position of DOM
+
+##### `Toast`
+
+```JSX
+// index.tsx
+import {createRoot} from 'react-dom/client';
+import {Toast} from 'vin-react';
+
+const rootEl = document.getElementById('root');
+const container = createRoot(rootEl)
+
+container.render(
+  <Toast.Provider>
+    <App/>
+  </Toast.Provider>
+)
+
+// App.tsx
+import {useToast} from 'vin-react';
+
+const [showToast] = useToast();
+const handleShowToast = () => {
+  showModal('This is a toast!')
+}
+```
+
+> NOTE: Make sure the Toast Provider is at the hierarchy position of DOM
 
 ##### `Pagination`
 
