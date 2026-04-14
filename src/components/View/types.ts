@@ -7,7 +7,7 @@ type Props = {
   style?: CSSProperties;
   children?: any;
   className?: string;
-  ref?: React.LegacyRef<HTMLParagraphElement>;
+  ref?: React.LegacyRef<HTMLDivElement>;
   onMouseEnter?: MouseEventHandler<HTMLDivElement>;
   onMouseLeave?: MouseEventHandler<HTMLDivElement>;
   onClick?: MouseEventHandler<HTMLDivElement>;
