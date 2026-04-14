@@ -27,10 +27,7 @@ jobs:
           node-version: "20"
           registry-url: "https://registry.npmjs.org"
 
-      - name: build
-        run: npm run build
-
-      - name: deploy
+      - name: build and deploy
         run: |
-          export NPM_TOKEN=${{ secrets.NPM_ACC3SS_T0K3N }}
+          npm run build
           npm publish
