@@ -10,3 +10,5 @@ webpack.config.js
 
 # configuration
 .*
+
+.env*
