@@ -6,6 +6,7 @@ type Props = {
   prefixComponent?: ReactNode;
   suffixClassName?: string;
   suffixComponent?: ReactNode;
+  classNames?: (names: string[]) => string;
   panelRef?: (ref: HTMLDivElement | null) => any;
   panelProps?: React.HTMLAttributes<HTMLDivElement>;
   onChangeText?: (value: string, event: ChangeEvent<HTMLInputElement>) => void;
