@@ -6,7 +6,6 @@ VIN-REACT is a React component library built around simple, flexbox-first UI pri
 
 - [Installation](#installation)
 - [Features](#features)
-- [Component Props](#component-props)
 - [Examples](#examples)
 - [Providers](#providers)
 
@@ -176,7 +175,10 @@ const App: React.FC = () => {
 const YourApp: React.FC = () => {
   const {showModal} = useContext(Modal.Context);
   const {showToast} = useContext(Toast.Context);
-}
+
+  showModal(<MyModal />);
+  showToast('Hello World!', {title: 'INFO'});
+};
 ```
 
 > NOTE: Wrap your app with `Modal.Provider` and `Toast.Provider` so floating overlays render correctly.
