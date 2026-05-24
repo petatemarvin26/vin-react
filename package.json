@@ -12,25 +12,9 @@
       "import": "./lib/index.js",
       "types": "./lib/index.d.ts"
     },
-    "./lib/float": {
-      "import": "./lib/float/index.js",
-      "types": "./lib/float/index.d.ts"
-    },
     "./lib/components": {
       "import": "./lib/components/index.js",
       "types": "./lib/components/index.d.ts"
-    },
-    "./lib/utils": {
-      "import": "./lib/utils/index.js",
-      "types": "./lib/utils/index.d.ts"
-    },
-    "./lib/hooks": {
-      "import": "./lib/hooks/index.js",
-      "types": "./lib/hooks/index.d.ts"
-    },
-    "./lib/hoc": {
-      "import": "./lib/hoc/index.js",
-      "types": "./lib/hoc/index.d.ts"
     }
   },
   "scripts": {
@@ -96,10 +80,7 @@
     "webpack-cli": "^7.0.2"
   },
   "peerDependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
-  },
-  "dependencies": {
-    "vin-react": "^6.0.8"
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6"
   }
 }
