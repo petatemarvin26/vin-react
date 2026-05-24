@@ -4,6 +4,7 @@ import {Touchable, View} from '@/components';
 import {HandleSelect, Props} from './types';
 import styles from './styles.css';
 import {getStyles} from '@/utils/helper';
+import {ArrowDownSvg, ArrowLeftSvg} from './icons';
 
 const Dropdown: React.FC<Props> = ({
   items,
@@ -62,6 +63,11 @@ const Dropdown: React.FC<Props> = ({
     <View ref={dropdown} className={dropdownStyle}>
       <Touchable className={anchorStyle} onClick={handleClick}>
         {selected.label}
+        {show ? (
+          <ArrowDownSvg className={styles['dropdown-icon']} />
+        ) : (
+          <ArrowLeftSvg className={styles['dropdown-icon']} />
+        )}
       </Touchable>
       {show && (
         <View className={listStyle} style={{top}}>
