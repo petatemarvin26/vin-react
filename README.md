@@ -45,11 +45,7 @@ const App: React.FC = () => {
 
   return (
     <div>
-      <Checkbox
-        label="Accept terms"
-        value={checked}
-        onChange={setChecked}
-      />
+      <Checkbox label='Accept terms' value={checked} onChange={setChecked} />
     </div>
   );
 };
@@ -60,15 +56,20 @@ const App: React.FC = () => {
 ```tsx
 import {Dropdown} from 'vin-react';
 
+const items = [
+  {label: 'One', value: 1},
+  {label: 'Two', value: 2}
+];
+
 const App: React.FC = () => {
+  const [selected, setSelected] = useState(items[0]);
+
   return (
     <div>
       <Dropdown
-        onChange={(selected) => console.log(selected)}
-        data={[
-          {label: 'One', value: 1},
-          {label: 'Two', value: 2}
-        ]}
+        items={items}
+        selected={selected}
+        onSelect={(item) => setSelected(item)}
       />
     </div>
   );
@@ -83,9 +84,14 @@ import {Indicator} from 'vin-react';
 const App: React.FC = () => {
   return (
     <div>
-      <Indicator.Bar width={250} height={10} cornerStyle="round" animating />
+      <Indicator.Bar width={250} height={10} cornerStyle='round' animating />
       <Indicator.Bar width={250} height={10} progress={0.5} />
-      <Indicator.CircleSnail size={100} thickness={10} cornerStyle="round" animating />
+      <Indicator.CircleSnail
+        size={100}
+        thickness={10}
+        cornerStyle='round'
+        animating
+      />
       <Indicator.CircleSnail size={100} thickness={10} progress={0.5} />
     </div>
   );
@@ -98,9 +104,11 @@ const App: React.FC = () => {
 import {InputText} from 'vin-react';
 
 const App: React.FC = () => {
+  const [value, setValue] = useState('');
+
   return (
     <div>
-      <InputText placeholder="Enter text" />
+      <InputText placeholder='Enter text' onChangeText={setValue} />
     </div>
   );
 };
@@ -114,14 +122,7 @@ import {Pagination} from 'vin-react';
 const App: React.FC = () => {
   return (
     <div>
-      <Pagination
-        maxPageDisplay={5}
-        totalData={15}
-        currentPage={2}
-        onPageChange={(page, event) => {
-          console.log(page, event);
-        }}
-      />
+      <Pagination totalPages={10} maxDisplay={5} fontSize='1rem' />
     </div>
   );
 };
@@ -141,7 +142,21 @@ const App: React.FC = () => {
 };
 ```
 
-##### `Floating Providers`
+##### `View`
+
+```tsx
+import {View} from 'vin-react';
+
+const App: React.FC = () => {
+  return (
+    <View className='container'>
+      <p>Content inside a View</p>
+    </View>
+  );
+};
+```
+
+##### Floating
 
 ```tsx
 import {Modal, Toast} from 'vin-react';
@@ -154,6 +169,14 @@ const App: React.FC = () => {
       </Toast.Provider>
     </Modal.Provider>
   );
+};
+
+const YourApp: React.FC = () => {
+  const {showModal} = useContext(Modal.Context);
+  const {showToast} = useContext(Toast.Context);
+
+  showModal(<MyModal />);
+  showToast('Hello World!', {title: 'INFO'});
 };
 ```
 
