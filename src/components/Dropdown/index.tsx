@@ -1,4 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React, {
+  EventHandler,
+  MouseEventHandler,
+  useEffect,
+  useState
+} from 'react';
 import {Touchable, View} from '@/components';
 
 import {HandleSelect, Props} from './types';
@@ -56,6 +61,14 @@ const Dropdown: React.FC<Props> = ({
   const handleInit = () => {
     const height = dropdown.current?.getClientRects().item(0)?.height;
     if (height) setTop(`${height + 1}px`);
+
+    const handleEventClick = (e: PointerEvent) => {
+      if (!dropdown.current?.contains(e.target as HTMLElement)) {
+        setShow(false);
+      }
+    };
+    document.addEventListener('click', handleEventClick);
+    return () => document.removeEventListener('click', handleEventClick);
   };
   useEffect(handleInit, []);
 
