@@ -10,7 +10,8 @@ const InputText: React.FC<Props> = ({
   prefixComponent,
   suffixComponent,
   placeholder,
-  onChangeText
+  onChangeText,
+  ...rest
 }) => {
   const inputViewStyle = getStyles(
     className,
@@ -23,11 +24,12 @@ const InputText: React.FC<Props> = ({
     <View className={inputViewStyle}>
       {prefixComponent}
       <input
+        {...rest}
         name={placeholder}
         className={inputStyle}
         placeholder={placeholder}
         disabled={disabled}
-        onChange={(e) => onChangeText(e.target.value)}
+        onChange={(e) => onChangeText && onChangeText(e.target.value)}
       />
       {suffixComponent}
     </View>
