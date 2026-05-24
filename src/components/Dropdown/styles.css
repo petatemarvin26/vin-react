@@ -6,6 +6,12 @@
 }
 
 .fr-dropdown .fr-dropdown-anchor {
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+
+.fr-dropdown-anchor .dropdown-icon {
+  font-size: 15px;
 }
 
 .fr-dropdown .fr-dropdown-list {
