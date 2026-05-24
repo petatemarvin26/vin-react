@@ -1,6 +1,6 @@
 {
   "name": "vin-react",
-  "version": "7.0.1",
+  "version": "7.0.2",
   "description": "This library is exclusive for react that utilize the flexbox.",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -15,6 +15,10 @@
     "./lib/components": {
       "import": "./lib/components/index.js",
       "types": "./lib/components/index.d.ts"
+    },
+    "./lib/floating": {
+      "import": "./lib/floating/index.js",
+      "types": "./lib/floating/index.d.ts"
     }
   },
   "scripts": {
