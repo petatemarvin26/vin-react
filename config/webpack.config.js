@@ -22,21 +22,9 @@ module.exports = (env) => {
         import: resolver('src/components/index.ts'),
         filename: './components/index.js'
       },
-      float: {
-        import: resolver('src/float/index.ts'),
-        filename: './float/index.js'
-      },
-      utils: {
-        import: resolver('src/utils/index.ts'),
-        filename: './utils/index.js'
-      },
-      hooks: {
-        import: resolver('src/hooks/index.ts'),
-        filename: './hooks/index.js'
-      },
-      hoc: {
-        import: resolver('src/hoc/index.ts'),
-        filename: './hoc/index.js'
+      floating: {
+        import: resolver('src/floating/index.ts'),
+        filename: './floating/index.js'
       }
     },
     output: {
