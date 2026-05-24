@@ -7,7 +7,6 @@ VIN-REACT is a React component library built around simple, flexbox-first UI pri
 - [Installation](#installation)
 - [Features](#features)
 - [Examples](#examples)
-- [Providers](#providers)
 
 ## Installation
 
@@ -157,7 +156,7 @@ const App: React.FC = () => {
 };
 ```
 
-## Providers
+##### Floating
 
 ```tsx
 import {Modal, Toast} from 'vin-react';
