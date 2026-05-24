@@ -1,27 +1,15 @@
-import {PureComponent, ReactNode} from 'react';
-import {connectStyle} from '@/hoc';
+import {getStyles} from '@/utils/helper';
 
-import {Props, States} from './types';
+import {Props} from './types';
 import styles from './styles.css';
 
-class Header extends PureComponent<Props, States> {
-  render(): ReactNode {
-    const {
-      children,
-      className,
-      style,
-      classNames = () => '',
-      ...rest
-    } = this.props;
+const Header: React.FC<Props> = ({className = '', children, ...rest}) => {
+  const headerStyle = getStyles(className, styles['fr-header']);
 
-    const _className = classNames(['vr-header-txt', className]);
-
-    return (
-      <h1 {...rest} className={_className} style={style}>
-        {children}
-      </h1>
-    );
-  }
-}
-
-export default connectStyle(styles)(Header);
+  return (
+    <h1 className={headerStyle} {...rest}>
+      {children}
+    </h1>
+  );
+};
+export default Header;

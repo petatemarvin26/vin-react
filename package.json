@@ -1,6 +1,6 @@
 {
   "name": "vin-react",
-  "version": "6.0.8",
+  "version": "7.0.0",
   "description": "This library is exclusive for react that utilize the flexbox.",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -76,27 +76,30 @@
   "homepage": "https://github.com/petatemarvin26/vin-react#readme",
   "devDependencies": {
     "@babel/core": "^7.29.0",
-    "@babel/preset-env": "^7.29.2",
+    "@babel/preset-env": "^7.29.5",
     "@babel/preset-react": "^7.28.5",
     "@babel/preset-typescript": "^7.28.5",
     "@svgr/webpack": "^8.1.0",
-    "@types/react": "^18.3.28",
-    "@types/react-dom": "^18.3.7",
-    "babel-loader": "^9.2.1",
-    "css-loader": "^6.11.0",
+    "@types/react": "^19.2.15",
+    "@types/react-dom": "^19.2.3",
+    "babel-loader": "^10.1.1",
+    "css-loader": "^7.1.4",
     "fork-ts-checker-webpack-plugin": "^9.1.0",
     "npm-watch": "^0.13.0",
-    "style-loader": "^3.3.4",
-    "ts-patch": "^3.3.0",
+    "style-loader": "^4.0.0",
+    "ts-patch": "^4.0.1",
     "tsconfig-paths-webpack-plugin": "^4.2.0",
-    "typescript": "^5.9.3",
-    "typescript-transform-paths": "^3.5.6",
+    "typescript": "^6.0.3",
+    "typescript-transform-paths": "^4.0.0",
     "url-loader": "^4.1.1",
-    "webpack": "^5.106.1",
-    "webpack-cli": "^5.1.4"
+    "webpack": "^5.107.1",
+    "webpack-cli": "^7.0.2"
   },
   "peerDependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
+  },
+  "dependencies": {
+    "vin-react": "^6.0.8"
   }
 }

@@ -1,4 +1,5 @@
 import CircleSnail from './CircleSnail';
 import Bar from './Bar';
 
-export {CircleSnail, Bar};
+const Indicator = {CircleSnail, Bar};
+export default Indicator;

@@ -1,30 +1,24 @@
-import {PureComponent, ReactNode} from 'react';
-import {connectStyle} from '@/hoc';
+import {getStyles} from '@/utils/helper';
 
-import {Props, States} from './types';
+import {Props} from './types';
 import styles from './styles.css';
 
-class Button extends PureComponent<Props, States> {
-  render(): ReactNode {
-    const {
-      className,
-      style,
-      title,
-      children,
-      type = 'button',
-      classNames = () => '',
-      onClick = () => {},
-      ...rest
-    } = this.props;
+const Touchable: React.FC<Props> = ({
+  className = '',
+  disabled,
+  children,
+  ...rest
+}) => {
+  const touchableStyle = getStyles(
+    className,
+    styles['fr-touchable'],
+    disabled ? styles['fr-touchable-disabled'] : ''
+  );
 
-    const _className = classNames(['vr-touchable', className]);
-
-    return (
-      <button {...rest} type={type} className={_className} style={style} onClick={onClick}>
-        {title ? title : children}
-      </button>
-    );
-  }
-}
-
-export default connectStyle(styles)(Button);
+  return (
+    <button className={touchableStyle} disabled={disabled} {...rest}>
+      {children}
+    </button>
+  );
+};
+export default Touchable;

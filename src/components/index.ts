@@ -1,10 +1,9 @@
-export {default as Touchable} from './Touchable';
-export {default as Counter} from './Counter';
 export {default as Dropdown} from './Dropdown';
+export {default as Checkbox} from './Checkbox';
 export {default as Header} from './Header';
-export {default as Image} from './Image';
-export * as Indicator from './Indicator';
-export {default as Input} from './Input';
+export {default as Indicator} from './Indicator';
+export {default as InputText} from './InputText';
 export {default as Pagination} from './Pagination';
 export {default as Text} from './Text';
+export {default as Touchable} from './Touchable';
 export {default as View} from './View';

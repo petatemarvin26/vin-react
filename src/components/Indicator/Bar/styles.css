@@ -1,22 +1,25 @@
-.vr-bar-indicator {
+@keyframes moving-anim {
+  0% {
+    x: calc(var(--BAR-ANCHOR-WIDTH) * -1.25);
+  }
+  100% {
+    x: calc(var(--BAR-ANCHOR-WIDTH) + var(--BAR-ANCHOR-WIDTH) * 1.25);
+  }
+}
+
+.fr-indicator-bar {
   border-radius: var(--BAR-ROUND);
 }
 
-.vr-bar-indicator .vr-bar-indicator-anc {
+.fr-indicator-bar .fr-indicator-bar-bg {
+}
+
+.fr-indicator-bar .fr-indicator-bar-anc {
   transition: width 1s ease-in-out;
 }
 
 .moving {
   animation: linear infinite;
   animation-duration: var(--BAR-ANCHOR-SPEED);
-  animation-name: moving-animation;
-}
-
-@keyframes moving-animation {
-  0% {
-    x: calc(var(--BAR-ANCHOR-WIDTH) * -1.25);
-  }
-  100% {
-    x: calc(var(--BAR-ANCHOR-WIDTH) + var(--BAR-ANCHOR-WIDTH) * 0.25);
-  }
+  animation-name: moving-anim;
 }

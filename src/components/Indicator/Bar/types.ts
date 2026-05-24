@@ -1,11 +1,6 @@
-import {ConnectStyleProps} from '@/hoc/types';
-
-type Props = {
+export type Props = {
   width: number;
   height: number;
-  className?: string;
-  classNameBg?: string;
-  classNameAnc?: string;
   animating?: boolean;
   /**
    * Default is `square`
@@ -22,7 +17,4 @@ type Props = {
    */
   speed?: number;
   color?: string;
-} & ConnectStyleProps &
-  React.SVGAttributes<HTMLOrSVGElement>;
-
-export type {Props};
+} & React.SVGAttributes<HTMLOrSVGElement>;
