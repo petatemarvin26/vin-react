@@ -1,23 +1,19 @@
-import {Props as ItemProps} from '@/common/components/Item/types';
-import {ConnectStyleProps} from '@/hoc/types';
-
-type Props = {
-  dropdownClassName?: string;
-  selectedClassName?: string;
-  selectedBtnClassName?: string;
-  dropdownListClassName?: string;
-  dropdownListContClassName?: string;
-  placeholder?: string;
-  suffixComponent?: any;
-  suffixClassName?: string;
-  data: Array<ItemProps>;
-  onChange?: (data?: ItemProps) => void;
-} & ConnectStyleProps;
-
-type State = {
-  data: Array<ItemProps>;
-  show: boolean;
-  selected?: ItemProps;
+export type Item = {
+  label: string;
+  value: any;
 };
 
-export type {Props, State};
+export type HandleSelect = {
+  (item: Item): void;
+};
+
+export type Props = {
+  selected: Item;
+  onSelect: HandleSelect;
+  items: Item[];
+  className?: string;
+  selectedClassName?: string;
+  listClassName?: string;
+  containerClassName?: string;
+  itemsClassName?: string;
+};

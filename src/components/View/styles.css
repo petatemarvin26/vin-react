@@ -1,7 +1,6 @@
-.fr-header {
+.fr-view {
   display: flex;
-  font-size: 1rem;
-  font-weight: 200;
+  flex-direction: column;
   font-family:
     system-ui,
     -apple-system,
@@ -16,5 +15,4 @@
     sans-serif;
   margin: 0;
   padding: 0;
-  width: 100%;
 }

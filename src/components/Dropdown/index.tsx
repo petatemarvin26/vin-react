@@ -1,100 +1,75 @@
-import {PureComponent, ReactNode} from 'react';
+import React, {useEffect, useState} from 'react';
+import {Touchable, View} from '@/components';
 
-import {Item} from '@/common/components';
-import {Touchable} from '@/components';
-
-import {Props, State} from './types';
+import {HandleSelect, Props} from './types';
 import styles from './styles.css';
-import {connectStyle} from '@/hoc';
+import {getStyles} from '@/utils/helper';
 
-class Dropdown extends PureComponent<Props, State> {
-  ref: HTMLDivElement | null = null;
+const Dropdown: React.FC<Props> = ({
+  items,
+  selected,
+  className,
+  selectedClassName,
+  listClassName,
+  containerClassName,
+  itemsClassName,
+  onSelect
+}) => {
+  const dropdown = React.useRef<HTMLDivElement>(null);
+  const [top, setTop] = useState<string>();
+  const [show, setShow] = useState<boolean>(false);
 
-  constructor(props: Props) {
-    super(props);
+  const dropdownStyle = getStyles(className, styles['fr-dropdown']);
+  const anchorStyle = getStyles(
+    selectedClassName,
+    styles['fr-dropdown-anchor']
+  );
+  const listStyle = getStyles(listClassName, styles['fr-dropdown-list']);
+  const containerStyle = getStyles(
+    containerClassName,
+    styles['fr-dropdown-container']
+  );
+  const itemsStyle = getStyles(itemsClassName, styles['fr-dropdown-item']);
 
-    this.state = {
-      selected: undefined,
-      show: false,
-      data: this.props.data || []
-    };
-  }
-
-  handleClick = () => {
-    this.setState((prev) => ({...prev, show: !prev.show}));
+  const handleSelectItem: HandleSelect = (selected) => {
+    onSelect(selected);
+    setShow(false);
   };
 
-  handleSelect = (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-    selected: State['selected']
-  ) => {
-    const {onChange} = this.props;
-
-    this.setState((state) => ({...state, selected, show: false}));
-    onChange && onChange(selected);
+  const handleClick = () => {
+    setShow((prev) => !prev);
   };
 
-  componentDidMount(): void {
-    document.addEventListener('click', (e) => {
-      if (!this.ref?.contains(e.target as Node))
-        this.setState((prev) => ({...prev, show: false}));
-    });
-  }
+  const renderItems = items
+    .filter(({value}) => value !== selected.value)
+    .map((data, idx) => (
+      <Touchable
+        key={idx}
+        className={itemsStyle}
+        onClick={() => handleSelectItem(data)}
+      >
+        {data.label}
+      </Touchable>
+    ));
 
-  render(): ReactNode {
-    const {handleSelect, handleClick} = this;
-    const {selected, show} = this.state;
-    const {
-      dropdownClassName,
-      selectedClassName,
-      selectedBtnClassName,
-      dropdownListClassName,
-      dropdownListContClassName,
-      placeholder = 'Select Item...',
-      suffixClassName,
-      suffixComponent,
-      classNames = () => ''
-    } = this.props;
+  const handleInit = () => {
+    const height = dropdown.current?.getClientRects().item(0)?.height;
+    if (height) setTop(`${height + 1}px`);
+  };
+  useEffect(handleInit, []);
 
-    const renderItem = () => {
-      return this.state.data
-        .filter((d) => d.value !== selected?.value)
-        .map((d) => <Item {...d} onClick={(e) => handleSelect(e, d)} />);
-    };
+  return (
+    <View ref={dropdown} className={dropdownStyle}>
+      <Touchable className={anchorStyle} onClick={handleClick}>
+        {selected.label}
+      </Touchable>
+      {show && (
+        <View className={listStyle} style={{top}}>
+          <View className={containerStyle}>{renderItems}</View>
+        </View>
+      )}
+    </View>
+  );
+};
 
-    const _dClassName = classNames(['vr-dropdown', dropdownClassName]);
-    const _spClassName = classNames([
-      'vr-selected-pane',
-      selectedClassName
-    ]);
-    const _sbClassName = classNames(['vr-selected-btn', selectedBtnClassName]);
-    const _dlClassName = classNames([
-      'vr-dropdown-list',
-      show ? 's' : 'h',
-      dropdownListClassName
-    ]);
-    const _suffixClassName = classNames(['vr-suffix-pane', suffixClassName]);
-    const _dlcClassName = classNames([
-      'vr-dropdown-list-container',
-      dropdownListContClassName
-    ]);
-
-    return (
-      <div ref={(ref) => (this.ref = ref)} className={_dClassName}>
-        <div className={_spClassName}>
-          <Touchable className={_sbClassName} onClick={handleClick}>
-            {selected?.label ?? <span>{placeholder}</span>}
-          </Touchable>
-          {suffixComponent && (
-            <div className={_suffixClassName}>{suffixComponent}</div>
-          )}
-        </div>
-        <div className={_dlClassName}>
-          <div className={_dlcClassName}>{renderItem()}</div>
-        </div>
-      </div>
-    );
-  }
-}
-
-export default connectStyle(styles)(Dropdown);
+export default Dropdown;

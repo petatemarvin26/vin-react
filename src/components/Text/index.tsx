@@ -1,27 +1,15 @@
-import {PureComponent, ReactNode} from 'react';
-import {connectStyle} from '@/hoc';
+import {getStyles} from '@/utils/helper';
 
-import {Props, States} from './types';
+import {Props} from './types';
 import styles from './styles.css';
 
-class Text extends PureComponent<Props, States> {
-  render(): ReactNode {
-    const {
-      children,
-      className,
-      style,
-      classNames = () => '',
-      ...rest
-    } = this.props;
+const Text: React.FC<Props> = ({className = '', children, ...rest}) => {
+  const textStyle = getStyles(className, styles['fr-text']);
 
-    const _className = classNames(['vr-text', className]);
-
-    return (
-      <p {...rest} className={_className} style={style}>
-        {children}
-      </p>
-    );
-  }
-}
-
-export default connectStyle(styles)(Text);
+  return (
+    <p className={textStyle} {...rest}>
+      {children}
+    </p>
+  );
+};
+export default Text;

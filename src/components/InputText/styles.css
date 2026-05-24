@@ -1,9 +1,14 @@
-.fr-touchable {
-  display: flex;
+.fr-input-view.fr-input-view {
+  flex-direction: row;
+  gap: 1rem;
+  padding: 0 1rem;
   align-items: center;
-  justify-content: center;
+}
+
+.fr-input-view .fr-input {
+  width: 100%;
+  min-height: 45px;
   font-size: 1rem;
-  font-weight: 400;
   font-family:
     system-ui,
     -apple-system,
@@ -16,22 +21,11 @@
     'Open Sans',
     'Helvetica Neue',
     sans-serif;
-  margin: 0;
-  padding: 0;
   border: none;
+  outline: none;
   background-color: transparent;
-  width: 100%;
-  min-height: 45px;
 }
 
-.fr-touchable:hover {
-  cursor: pointer;
-}
-
-.fr-touchable:active {
-  opacity: 0.5;
-}
-
-.fr-touchable-disabled {
+.fr-input-disabled {
   opacity: 0.75;
 }

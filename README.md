@@ -1,12 +1,12 @@
 ## VIN-REACT
 
-is React library that focus the simplest way to use component and utilize the powerful of Flexbox, Cutomizable and Simplicity.
+VIN-REACT is a React component library built around simple, flexbox-first UI primitives and lightweight floating overlays.
 
 ## Table Contents
 
-- [Installation](#Installation)
-- [Features](#Features)
-- [Examples](#Examples)
+- [Installation](#installation)
+- [Features](#features)
+- [Examples](#examples)
 
 ## Installation
 
@@ -18,201 +18,99 @@ npm install vin-react
 
 #### Components
 
-- [Counter](#Counter)
-- [Dropdown](#Dropdown)
+- Checkbox
+- Dropdown
 - Header
-- [Image](#Image)
-- [Indicator](#indicator)
-- [Input](#Input)
-- [Pagination](#Pagination)
+- Indicator
+- InputText
+- Pagination
 - Text
-- [Touchable](#Touchable)
-- [View](#View)
+- Touchable
+- View
 
 #### Floating Components
 
-- [Modal](#Modal)
-- [Toast](#Toast)
-
-#### Hooks
-
-- [useModal](#Modal)
-- [useToast](#Toast)
-
-#### Higher Order Component (HOC)
-
-- [connectStyle](#connectStyle)
+- Modal
+- Toast
 
 ## Examples
 
-##### `Counter`
+##### `Checkbox`
 
-```TSX
-import {Counter} from 'vin-react'
-...
+```tsx
+import {Checkbox} from 'vin-react';
+
 const App: React.FC = () => {
+  const [checked, setChecked] = useState(false);
+
   return (
     <div>
-      <Counter
-        max={10}
-        onChange={nextNum => console.log(nextNum)}
+      <Checkbox
+        label="Accept terms"
+        value={checked}
+        onChange={setChecked}
       />
     </div>
-  )
-}
+  );
+};
 ```
 
 ##### `Dropdown`
 
-```TSX
-import {Dropdown} from 'vin-react'
-...
+```tsx
+import {Dropdown} from 'vin-react';
+
 const App: React.FC = () => {
   return (
     <div>
       <Dropdown
-        onChange={selected => console.log(selected)}
+        onChange={(selected) => console.log(selected)}
         data={[
           {label: 'One', value: 1},
           {label: 'Two', value: 2}
         ]}
       />
     </div>
-  )
-}
-```
-
-##### `Image`
-
-```TSX
-import {Image} from 'vin-react'
-...
-const App: React.FC = () => {
-  const [imgProg, setImgProgress] = useState<number>(0)
-  return (
-    <div>
-      <p>Image render {imgProg}</p>
-      <Image
-        src='https://somewhere.com/yourimage.png'
-        onLoading={setImgProgress}
-      />
-    </div>
-  )
-}
+  );
+};
 ```
 
 ##### `Indicator`
 
-```TSX
-import {Indicator} from 'vin-react'
-...
+```tsx
+import {Indicator} from 'vin-react';
+
 const App: React.FC = () => {
   return (
     <div>
-      <Indicator.Bar
-        width={250}
-        height={10}
-        cornerStyle='round'
-        animating
-      />
+      <Indicator.Bar width={250} height={10} cornerStyle="round" animating />
       <Indicator.Bar width={250} height={10} progress={0.5} />
-      <Indicator.CircleSnail
-        size={100}
-        thickness={10}
-        cornerStyle='round'
-        animating
-      />
+      <Indicator.CircleSnail size={100} thickness={10} cornerStyle="round" animating />
       <Indicator.CircleSnail size={100} thickness={10} progress={0.5} />
     </div>
-  )
-}
+  );
+};
 ```
 
-##### `Input`
+##### `InputText`
 
-```TSX
-import {Input, Indicator} from 'vin-react'
-...
+```tsx
+import {InputText} from 'vin-react';
+
 const App: React.FC = () => {
   return (
     <div>
-      <Input
-        placeholder='password'
-        prefixComponent={<LockIcon/>}
-        suffixComponent={<Indicator progress={0.5}/>}
-      />
+      <InputText placeholder="Enter text" />
     </div>
-  )
-}
+  );
+};
 ```
-
-##### `Modal`
-
-```JSX
-// index.tsx
-import {createRoot} from 'react-dom/client';
-import {Modal} from 'vin-react';
-
-const rootEl = document.getElementById('root');
-const container = createRoot(rootEl)
-
-container.render(
-  <Modal.Provider>
-    <App/>
-  </Modal.Provider>
-)
-
-// App.tsx
-import {useModal} from 'vin-react';
-
-const [showModal, hideModal] = useModal();
-const handleShowModal = () => {
-  showModal(
-    <div>
-      <p>HI, THIS IS MODAL</p>
-    </div>,
-    { isClosableOutside: false }
-  )
-}
-const handleHideModal = () => {
-  hideModal()
-}
-```
-
-> NOTE: Make sure the Modal Provider is at the hierarchy position of DOM
-
-##### `Toast`
-
-```JSX
-// index.tsx
-import {createRoot} from 'react-dom/client';
-import {Toast} from 'vin-react';
-
-const rootEl = document.getElementById('root');
-const container = createRoot(rootEl)
-
-container.render(
-  <Toast.Provider>
-    <App/>
-  </Toast.Provider>
-)
-
-// App.tsx
-import {useToast} from 'vin-react';
-
-const [showToast] = useToast();
-const handleShowToast = () => {
-  showModal('This is a toast!')
-}
-```
-
-> NOTE: Make sure the Toast Provider is at the hierarchy position of DOM
 
 ##### `Pagination`
 
-```TSX
-import {Pagination} from 'vin-react'
-...
+```tsx
+import {Pagination} from 'vin-react';
+
 const App: React.FC = () => {
   return (
     <div>
@@ -220,8 +118,8 @@ const App: React.FC = () => {
         maxPageDisplay={5}
         totalData={15}
         currentPage={2}
-        onPageChange={(page, e) => {
-          console.log(page, e);
+        onPageChange={(page, event) => {
+          console.log(page, event);
         }}
       />
     </div>
@@ -231,82 +129,32 @@ const App: React.FC = () => {
 
 ##### `Touchable`
 
-```TSX
-import {Touchable} from 'vin-react'
-...
+```tsx
+import {Touchable} from 'vin-react';
+
 const App: React.FC = () => {
   return (
     <div>
       <Touchable onClick={() => console.log('CLICK')}>Click Me</Touchable>
-      <Touchable title="Click Me" onClick={() => console.log('CLICK')}/>
     </div>
-  )
-}
-```
-
-##### `View`
-
-```TSX
-import {View} from 'vin-react'
-...
-const App: React.FC = () => {
-  const myview = useRef<HTMLDivElement>();
-  return (
-    <View ref={myview}>
-      <button>CLICK ME!</button>
-    </View>
-  )
-}
-```
-
-##### `connectStyle`
-
-```JSX
-// MyButton.tsx
-import {ConnectStyleProps, connectStyle} from 'vin-react';
-import styles from './styles.scss';
-
-type Props = {
-  children: any;
-} & ConnectStyleProps;
-
-const MyButton: React.FC<Props> = ({children, classNames = () => ''}) => {
-  const btnStyle = classNames(
-    'green',
-    {red: undefined}, // display the red by default
-    {red: false}, // will not display red if value false
-    ['yellow']
-  );
-
-  return (
-    <button className={btnStyle}>
-      <p>{children}</p>
-    </button>
   );
 };
-export default connectStyle(styles)(MyButton);
-
 ```
 
-## Contributing
+##### `Floating Providers`
 
-Unfortunately we are not accepting any contributors yet this is under probitionary, but for your concerns and possible suggestions you may raise the issue on our github
+```tsx
+import {Modal, Toast} from 'vin-react';
 
-## Changelog
+const App: React.FC = () => {
+  return (
+    <Modal.Provider>
+      <Toast.Provider>
+        <YourApp />
+      </Toast.Provider>
+    </Modal.Provider>
+  );
+};
+```
 
-We're using github [release][github-release] and based on [semantic versioning][semantic-version]
-
-## Author
-
-[Marvin Petate][marvin-petate]
-
-## License
-
-[ISC][license]
-
-[ws]: https://www.npmjs.com/package/ws
-[nodejs]: https://nodejs.org/en
-[github-release]: https://github.com/petatemarvin26/vin-react/releases
-[license]: ./LICENSE
-[semantic-version]: https://semver.org/
-[marvin-petate]: https://marvin-petate.web.app
+> NOTE: Wrap your app with `Modal.Provider` and `Toast.Provider` so floating overlays render correctly.

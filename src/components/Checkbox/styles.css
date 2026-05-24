@@ -1,0 +1,15 @@
+.fr-checkbox {
+  gap: 0.5rem;
+}
+
+.disabled {
+  opacity: 0.25 !important;
+}
+
+.fr-checkbox .fr-checkbox-svg {
+  color: #000;
+}
+
+.fr-checkbox .fr-checkbox-txt {
+  color: #000;
+}

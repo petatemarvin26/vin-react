@@ -1,0 +1,15 @@
+.fr-pagination.fr-pagination {
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  min-height: 45px;
+  width: 100%;
+  gap: 10px;
+}
+
+.fr-pagination .fr-page {
+  width: unset;
+  height: unset;
+  min-height: unset;
+  outline: rgba(0, 0, 0, 0.5) 1px solid;
+}

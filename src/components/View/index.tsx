@@ -1,19 +1,15 @@
-import {PureComponent, ReactNode} from 'react';
-import {connectStyle} from '@/hoc';
+import {getStyles} from '@/utils/helper';
 
-import {Props, States} from './types';
-import styles from './.module.css';
+import {Props} from './types';
+import styles from './styles.css';
 
-class View extends PureComponent<Props, States> {
-  render(): ReactNode {
-    const {className, children, classNames = () => '', ...rest} = this.props;
-    const _className = classNames(['vr-view', className]);
-    return (
-      <div {...rest} className={_className}>
-        {children}
-      </div>
-    );
-  }
-}
+const View: React.FC<Props> = ({className = '', children, ref, ...rest}) => {
+  const viewStyle = getStyles(className, styles['fr-view']);
 
-export default connectStyle(styles)(View);
+  return (
+    <div ref={ref} className={viewStyle} {...rest}>
+      {children}
+    </div>
+  );
+};
+export default View;

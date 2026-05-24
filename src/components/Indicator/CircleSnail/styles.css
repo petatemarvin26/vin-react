@@ -1,18 +1,4 @@
-.vr-circle-indicator {
-  transform: rotate(-90deg);
-}
-
-.vr-circle-indicator .vr-circle-indicator-anc {
-  transition: stroke-dashoffset 1s ease-in-out;
-}
-
-.rotating {
-  animation: linear infinite;
-  animation-name: rotate-animation;
-  animation-duration: var(--CIRCLE-ANCHOR-SPEED);
-}
-
-@keyframes rotate-animation {
+@keyframes rotate-anim {
   0% {
     transform: rotate(0deg);
   }
@@ -20,18 +6,33 @@
     transform: rotate(360deg);
   }
 }
-
-.effects {
-  animation: infinite alternate;
-  animation-name: effects-animation;
-  animation-duration: var(--CIRCLE-ANCHOR-SPEED);
-}
-
-@keyframes effects-animation {
+@keyframes effects-anim {
   0% {
     stroke-dashoffset: calc(var(--CIRCLE-ANCHOR-WIDTH) * 2);
   }
   100% {
     stroke-dashoffset: var(--CIRCLE-ANCHOR-WIDTH);
   }
+}
+
+.fr-indicator-circle {
+  transform: rotate(-90deg);
+}
+
+.fr-indicator-circle .fr-indicator-circle-bg {
+}
+
+.fr-indicator-circle .fr-indicator-circle-anc {
+  transition: stroke-dashoffset 1s ease-in-out;
+}
+
+.rotating {
+  animation: linear infinite;
+  animation-name: rotate-anim;
+  animation-duration: var(--CIRCLE-ANCHOR-SPEED);
+}
+.effects {
+  animation: infinite alternate;
+  animation-name: effects-anim;
+  animation-duration: var(--CIRCLE-ANCHOR-SPEED);
 }
