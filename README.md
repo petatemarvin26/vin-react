@@ -181,3 +181,26 @@ const YourApp: React.FC = () => {
 ```
 
 > NOTE: Wrap your app with `Modal.Provider` and `Toast.Provider` so floating overlays render correctly.
+
+## Contributing
+
+Unfortunately we are not accepting any contributors yet this is under probitionary, but for your concerns and possible suggestions you may raise the issue on our github
+
+## Changelog
+
+We're using github [release][github-release] and based on [semantic versioning][semantic-version]
+
+## Author
+
+[Marvin Petate][marvin-petate]
+
+## License
+
+[ISC][license]
+
+[ws]: https://www.npmjs.com/package/ws
+[nodejs]: https://nodejs.org/en
+[github-release]: https://github.com/petatemarvin26/vin-react/releases
+[license]: ./LICENSE
+[semantic-version]: https://semver.org/
+[marvin-petate]: https://marvin-petate.web.app
