@@ -1,3 +1,5 @@
+import {cloneElement, useId} from 'react';
+
 import {View} from '@/components';
 import {getStyles} from '@/utils/helper';
 
@@ -22,7 +24,7 @@ const InputText: React.FC<Props> = ({
 
   return (
     <View className={inputViewStyle}>
-      {prefixComponent}
+      {prefixComponent && cloneElement(prefixComponent as any, {key: useId()})}
       <input
         {...rest}
         name={placeholder}
@@ -31,7 +33,7 @@ const InputText: React.FC<Props> = ({
         disabled={disabled}
         onChange={(e) => onChangeText && onChangeText(e.target.value)}
       />
-      {suffixComponent}
+      {suffixComponent && cloneElement(suffixComponent as any, {key: useId()})}
     </View>
   );
 };

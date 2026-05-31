@@ -25,6 +25,10 @@ module.exports = (env) => {
       floating: {
         import: resolver('src/floating/index.ts'),
         filename: './floating/index.js'
+      },
+      utils: {
+        import: resolver('src/utils/index.ts'),
+        filename: './utils/index.js'
       }
     },
     output: {
