@@ -7,15 +7,15 @@
   }
 }
 
-.fr-popup {
+.fr-popup.fr-popup {
   width: 300px;
   border: solid 0.1px rgba(0, 0, 0, 0.25);
   box-sizing: border-box;
   border-radius: 0.25rem;
   background-color: #fff;
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   position: absolute;
-  z-index: 2;
+  z-index: 3;
   right: 30px;
   bottom: 30px;
   padding: 0.65rem;
