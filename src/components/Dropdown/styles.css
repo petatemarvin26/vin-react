@@ -5,16 +5,20 @@
   background-color: #fff;
 }
 
-.fr-dropdown .fr-dropdown-anchor {
+.fr-dropdown .fr-dropdown-selected {
   justify-content: space-between;
   padding: 0 1rem;
 }
 
-.fr-dropdown .fr-dropdown-unselected {
-  color: rgba(0, 0, 0, 0.4);
+.fr-dropdown-selected svg {
+  pointer-events: none;
 }
 
-.fr-dropdown-anchor .dropdown-icon {
+.fr-dropdown .fr-dropdown-unselected {
+  color: gray;
+}
+
+.fr-dropdown-selected .dropdown-icon {
   font-size: 15px;
 }
 
