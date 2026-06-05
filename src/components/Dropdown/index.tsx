@@ -14,6 +14,7 @@ import {ArrowDownSvg, ArrowLeftSvg} from './icons';
 const Dropdown: React.FC<Props> = ({
   items,
   selected,
+  placeholder,
   className,
   selectedClassName,
   listClassName,
@@ -26,9 +27,10 @@ const Dropdown: React.FC<Props> = ({
   const [show, setShow] = useState<boolean>(false);
 
   const dropdownStyle = getStyles(className, styles['fr-dropdown']);
-  const anchorStyle = getStyles(
+  const selectedStyle = getStyles(
     selectedClassName,
-    styles['fr-dropdown-anchor']
+    styles['fr-dropdown-anchor'],
+    !selected && styles['fr-dropdown-unselected']
   );
   const listStyle = getStyles(listClassName, styles['fr-dropdown-list']);
   const containerStyle = getStyles(
@@ -47,7 +49,7 @@ const Dropdown: React.FC<Props> = ({
   };
 
   const renderItems = items
-    .filter(({value}) => value !== selected.value)
+    .filter(({value}) => value !== selected?.value)
     .map((data, idx) => (
       <Touchable
         key={idx}
@@ -74,8 +76,8 @@ const Dropdown: React.FC<Props> = ({
 
   return (
     <View ref={dropdown} className={dropdownStyle}>
-      <Touchable className={anchorStyle} onClick={handleClick}>
-        {selected.label}
+      <Touchable className={selectedStyle} onClick={handleClick}>
+        {selected ? selected.label : placeholder}
         {show ? (
           <ArrowDownSvg className={styles['dropdown-icon']} />
         ) : (

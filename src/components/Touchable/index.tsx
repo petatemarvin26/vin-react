@@ -12,7 +12,7 @@ const Touchable: React.FC<Props> = ({
   const touchableStyle = getStyles(
     className,
     styles['fr-touchable'],
-    disabled ? styles['fr-touchable-disabled'] : ''
+    disabled && styles['fr-touchable-disabled']
   );
 
   return (

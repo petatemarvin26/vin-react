@@ -17,7 +17,7 @@ const Checkbox: React.FC<Props> = ({
   const checkboxStyle = getStyles(
     className,
     styles['fr-checkbox'],
-    disabled ? styles['disabled'] : ''
+    disabled && styles['disabled']
   );
 
   const svgProps = {
