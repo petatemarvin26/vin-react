@@ -18,7 +18,7 @@ const InputText: React.FC<Props> = ({
   const inputViewStyle = getStyles(
     className,
     styles['fr-input-view'],
-    disabled ? styles['fr-input-disabled'] : ''
+    disabled && styles['fr-input-disabled']
   );
   const inputStyle = getStyles(styles['fr-input']);
 

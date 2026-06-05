@@ -23,12 +23,12 @@ const CircleSnail: React.FC<Props> = ({
   const circle = useRef<SVGSVGElement>(null);
   const circleStyle = getStyles(
     styles['fr-indicator-circle'],
-    animating ? styles['rotating'] : ''
+    animating && styles['rotating']
   );
   const circleBgStyle = getStyles(styles['fr-indicator-circle-bg']);
   const circleAncStyle = getStyles(
     styles['fr-indicator-circle-anc'],
-    animating ? styles['effects'] : ''
+    animating && styles['effects']
   );
 
   const anchorChange = (progress: number) => {

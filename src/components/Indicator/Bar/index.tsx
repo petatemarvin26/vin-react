@@ -20,7 +20,7 @@ const Bar: React.FC<Props> = ({
   const barBgStyle = getStyles(styles['fr-indicator-bar-bg']);
   const barAncStyle = getStyles(
     styles['fr-indicator-bar-anc'],
-    animating ? styles['moving'] : ''
+    animating && styles['moving']
   );
 
   const anchorChange = (progress: number) => {
