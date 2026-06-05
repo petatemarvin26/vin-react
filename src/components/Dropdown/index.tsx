@@ -29,7 +29,7 @@ const Dropdown: React.FC<Props> = ({
   const dropdownStyle = getStyles(className, styles['fr-dropdown']);
   const selectedStyle = getStyles(
     selectedClassName,
-    styles['fr-dropdown-anchor'],
+    styles['fr-dropdown-selected'],
     !selected && styles['fr-dropdown-unselected']
   );
   const listStyle = getStyles(listClassName, styles['fr-dropdown-list']);
