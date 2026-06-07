@@ -23,7 +23,7 @@
 
 .fr-transparent .fr-modal {
   inset: 0;
-  z-index: 2;
+  z-index: 9;
   align-items: center;
   justify-content: center;
   animation: show-modal-anim 0.25s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;

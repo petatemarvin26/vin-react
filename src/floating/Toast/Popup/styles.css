@@ -15,7 +15,7 @@
   background-color: #fff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   position: absolute;
-  z-index: 3;
+  z-index: 10;
   right: 30px;
   bottom: 30px;
   padding: 0.65rem;
