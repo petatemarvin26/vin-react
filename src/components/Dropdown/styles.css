@@ -26,6 +26,7 @@
   width: 100%;
   position: absolute;
   background-color: #fff;
+  z-index: 6;
 }
 
 .fr-dropdown .fr-dropdown-container {
