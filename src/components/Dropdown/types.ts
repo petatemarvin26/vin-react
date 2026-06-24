@@ -8,7 +8,6 @@ export type HandleSelect = {
 };
 
 export type Props = {
-  onSelect: HandleSelect;
   items: Item[];
   selected?: Item;
   placeholder?: string;
@@ -17,4 +16,6 @@ export type Props = {
   listClassName?: string;
   containerClassName?: string;
   itemsClassName?: string;
+  disabled?: boolean;
+  onSelect: HandleSelect;
 };

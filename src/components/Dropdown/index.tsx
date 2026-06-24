@@ -1,9 +1,4 @@
-import React, {
-  EventHandler,
-  MouseEventHandler,
-  useEffect,
-  useState
-} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Touchable, View} from '@/components';
 
 import {HandleSelect, Props} from './types';
@@ -20,6 +15,7 @@ const Dropdown: React.FC<Props> = ({
   listClassName,
   containerClassName,
   itemsClassName,
+  disabled,
   onSelect
 }) => {
   const dropdown = React.useRef<HTMLDivElement>(null);
@@ -76,7 +72,11 @@ const Dropdown: React.FC<Props> = ({
 
   return (
     <View ref={dropdown} className={dropdownStyle}>
-      <Touchable className={selectedStyle} onClick={handleClick}>
+      <Touchable
+        className={selectedStyle}
+        disabled={disabled}
+        onClick={handleClick}
+      >
         {selected ? selected.label : placeholder}
         {show ? (
           <ArrowDownSvg className={styles['dropdown-icon']} />
