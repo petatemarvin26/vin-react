@@ -1,6 +1,6 @@
 {
   "name": "vin-react",
-  "version": "7.1.7",
+  "version": "7.1.8",
   "description": "This library is exclusive for react that utilize the flexbox.",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
